@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/css/global.css">
+  <link rel="stylesheet" href="../static/css/notas.css">
+  <style>
+    .contenido{
+      margin-top: 60px;
+    }
+  </style>
+  <title>Notas</title>
+</head>
+
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+  <navbar-component level="../"></navbar-component>
+  <div class="contenido">
+    <nav class="bg-gray-800 border-b border-gray-700">
+      <div class="flex items-center px-2 py-1 space-x-4">
+        <div class="flex-1 flex justify-end">
+          <div class="relative">
+            <input type="text" placeholder="Buscar..."
+              class="bg-gray-700 px-4 py-1.5 rounded text-sm w-64 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <i class="fas fa-search absolute right-3 top-2 text-gray-400"></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="flex">
+      <aside class="w-64 bg-gray-800 h-screen p-4">
+        <div class="space-y-4">
+          <div class="space-y-2">
+            <h3 class="text-sm uppercase tracking-wider text-gray-400 px-2">Cuaderno de Física</h3>
+            <div class="space-y-1">
+              <button data-route="first" class="w-full text-left px-3 py-2 rounded hover:bg-gray-700 text-sm">
+                <i class="fas fa-file-alt mr-2"></i> Primer parcial
+              </button>
+              <button data-route="second" class="w-full text-left px-3 py-2 rounded bg-gray-700 text-sm">
+                <i class="fas fa-file-alt mr-2"></i> Segundo parcial
+              </button>
+              <button data-route="third" class="w-full text-left px-3 py-2 rounded hover:bg-gray-700 text-sm">
+                <i class="fas fa-file-alt mr-2"></i> Tercer parcial
+              </button>
+            </div>
+          </div>
+
+          <div class="space-y-1">
+            <button data-route="material" class="w-full text-left px-3 py-2 rounded hover:bg-gray-700 text-sm">
+              <i class="fas fa-book-open mr-2"></i> Material de apoyo
+            </button>
+            <button data-route="questions" class="w-full text-left px-3 py-2 rounded hover:bg-gray-700 text-sm">
+              <i class="fas fa-users mr-2"></i> Preguntas de alumnos
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <main class="flex-1 p-6" id="main-content">
+        <div class="max-w-4xl mx-auto">
+          <h1 class="text-2xl font-semibold mb-6">Campo Eléctrico</h1>
+
+          <div class="space-y-6">
+            <div class="bg-gray-800 rounded-lg p-6 space-y-4">
+              <h2 class="text-xl font-medium">Introducción al Campo Eléctrico</h2>
+
+              <p class="text-gray-300">
+                El campo eléctrico es un concepto fundamental en el estudio del electromagnetismo.
+                Representa la influencia que una carga eléctrica ejerce sobre el espacio que la rodea.
+              </p>
+
+              <div class="grid grid-cols-2 gap-6 mt-6">
+                <div class="bg-gray-700 p-4 rounded-lg">
+                  <div class="flex justify-center mb-4">
+                    <svg class="w-32 h-32" viewBox="0 0 100 100">
+                      <circle cx="50" cy="50" r="40" fill="none" stroke="#60A5FA" stroke-width="2" />
+                      <line x1="50" y1="50" x2="90" y2="50" stroke="#60A5FA" stroke-width="2" />
+                      <line x1="50" y1="50" x2="50" y2="90" stroke="#60A5FA" stroke-width="2" />
+                      <line x1="50" y1="50" x2="10" y2="50" stroke="#60A5FA" stroke-width="2" />
+                      <line x1="50" y1="50" x2="50" y2="10" stroke="#60A5FA" stroke-width="2" />
+                      <line x1="50" y1="50" x2="78" y2="78" stroke="#60A5FA" stroke-width="2" />
+                      <line x1="50" y1="50" x2="22" y2="78" stroke="#60A5FA" stroke-width="2" />
+                      <line x1="50" y1="50" x2="78" y2="22" stroke="#60A5FA" stroke-width="2" />
+                      <line x1="50" y1="50" x2="22" y2="22" stroke="#60A5FA" stroke-width="2" />
+                    </svg>
+                  </div>
+                  <p class="text-sm text-gray-300 text-center">
+                    Representación de líneas de campo eléctrico
+                  </p>
+                </div>
+
+                <div class="bg-gray-700 p-4 rounded-lg">
+                  <div class="text-center space-y-4">
+                    <h3 class="font-medium">Ecuación Fundamental</h3>
+                    <div class="text-2xl font-mono">E = F/q</div>
+                    <p class="text-sm text-gray-300">
+                      Donde:<br>
+                      E = Campo eléctrico<br>
+                      F = Fuerza eléctrica<br>
+                      q = Carga de prueba
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../static/js/global.js"></script>
+  <script src="../static/js/notas.js"></script>
+</body>
+
+</html>
