@@ -1,0 +1,69 @@
+================================================================================
+                              FísicaLab Project
+                            Simuladores de Física
+================================================================================
+
+Descripción del Proyecto
+-----------------------
+FísicaLab es una plataforma educativa diseñada para facilitar el aprendizaje
+de la física a través de simuladores interactivos, notas digitales y recursos
+educativos. El proyecto busca complementar la enseñanza tradicional con
+herramientas digitales modernas.
+
+================================================================================
+
+Estructura del Proyecto
+----------------------
+/
+├── index.html         # Página de inicio
+├── simuladores/       # Directorio de simuladores
+├── notas/             # Material didáctico y apuntes
+└── static/            # archivos staticos del proyecto
+
+================================================================================
+
+Características Principales
+-------------------------
+* Simuladores Interactivos
+  - Campo Electrico
+  - Repusión
+
+* Notas Digitales
+  - Apuntes organizados
+  - Material complementario
+  - Dudas de alumnos
+
+================================================================================
+
+Requisitos Técnicos
+------------------
+- Navegador web moderno (Chrome, Firefox, Safari, Edge)
+- JavaScript habilitado
+- Conexión a internet para recursos en línea
+
+================================================================================
+
+Uso del Sistema
+--------------
+1. Accede a la página principal
+2. Selecciona la sección deseada (Simuladores, Notas)
+3. Navega por las diferentes opciones disponibles
+4. Para los simuladores:
+   - Elige el tema de interés
+   - Ajusta los parámetros según necesites
+   - Observa los resultados
+
+================================================================================
+
+Agradecimientos
+--------------
+Este proyecto fue desarrollado como parte del curso de física, con el apoyo
+y guía del profesor Trujillo.
+
+================================================================================
+
+Notas Adicionales
+----------------
+- El sistema está en constante desarrollo
+- Se agregarán nuevos simuladores periódicamente
+- Las sugerencias de los usuarios son bienvenidas para mejoras futuras
