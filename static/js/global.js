@@ -143,7 +143,7 @@ class NavbarComponent extends HTMLElement {
       </style>
       <nav class="navbar">
         <div class="navbar-container">
-          <a href="${level}" class="logo">FísicaLab</a>
+          <a href="${level}/index.html" class="logo">FísicaLab</a>
           <ul class="nav-menu">
             <li><a href="${level}notas/index.html" class="nav-link">Notas</a></li>
             <li><a href="${level}simuladores/index.html" class="nav-link">Simuladores</a></li>
