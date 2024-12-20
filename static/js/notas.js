@@ -1,104 +1,180 @@
-class Router {
-  constructor(routes) {
-    this.routes = routes
-    this.currentRoute = 'home'
-    this.mainContent = document.getElementById('main-content')
+/* === COMPONENTE === */
 
-    this.initializeEvents()
-    this.loadRoute('home')
+class Router {
+  constructor(basePath = './pages/') {
+    this.basePath = basePath; // Directorio base donde se encuentran los archivos HTML
+    this.currentRoute = null;
+    this.mainContent = document.getElementById('main-content');
+
+    this.initializeEvents();
+    this.loadRoute('home'); // Ruta inicial
   }
 
   initializeEvents() {
-    document.querySelectorAll('[data-route]').forEach(button => {
+    document.querySelectorAll('[data-route]').forEach((button) => {
       button.addEventListener('click', (e) => {
-        const route = e.target.closest('[data-route]').dataset.route
-        this.loadRoute(route)
-      })
-    })
+        const route = e.target.closest('[data-route]').id; // Usa el id del botón
+        this.loadRoute(route);
+      });
+    });
   }
 
   loadRoute(route) {
-    this.currentRoute = route
+    this.currentRoute = route;
 
-    this.mainContent.innerHTML = this.routes[route]
+    // Limpiar el contenido previo
+    this.mainContent.innerHTML = '';
 
-    document.querySelectorAll('[data-route]').forEach(button => {
-      if (button.dataset.route === route) {
-        button.classList.add('bg-gray-700')
+    // Crear y configurar el iframe
+    const iframe = document.createElement('iframe');
+    iframe.src = `${this.basePath}${route}.html`; // Construir la ruta automáticamente
+    iframe.style.width = '100%';
+    iframe.style.height = '100vh';
+    iframe.style.border = 'none';
+
+    // Agregar el iframe al contenedor principal
+    this.mainContent.appendChild(iframe);
+
+    // Actualizar la clase activa en el menú
+    document.querySelectorAll('[data-route]').forEach((button) => {
+      if (button.id === route) {
+        button.classList.add('bg-gray-700');
       } else {
-        button.classList.remove('bg-gray-700')
+        button.classList.remove('bg-gray-700');
       }
-    })
+    });
   }
 }
 
-const routes = {
-  home: `
-        <div class="max-w-4xl mx-auto">
-          <h1 class="text-2xl font-semibold mb-6">Bienvenido al Curso de Física</h1>
-          <div class="bg-gray-800 rounded-lg p-6">
-            <p class="text-gray-300">Selecciona una sección del menú para comenzar.</p>
-          </div>
-        </div>
-      `,
-  first: `
-        <div class="max-w-4xl mx-auto">
-          <h1 class="text-2xl font-semibold mb-6">Campo Eléctrico</h1>
+class BotonComponente extends HTMLElement {
+  constructor() {
+    super();
 
-          <div class="space-y-6">
-            <div class="bg-gray-800 rounded-lg p-6 space-y-4">
-              <h2 class="text-xl font-medium">Introducción al Campo Eléctrico</h2>
+    this.attachShadow({ mode: "open" });
 
-              <p class="text-gray-300">
-                El campo eléctrico es un concepto fundamental en el estudio del electromagnetismo.
-                Representa la influencia que una carga eléctrica ejerce sobre el espacio que la rodea.
-              </p>
+    const name = this.getAttribute("name") || "No Name";
+    const idName = this.getAttribute("idName") || "id";
 
-              <div class="grid grid-cols-2 gap-6 mt-6">
-                <div class="bg-gray-700 p-4 rounded-lg">
-                  <div class="flex justify-center mb-4">
-                    <svg class="w-32 h-32" viewBox="0 0 100 100">
-                      <circle cx="50" cy="50" r="40" fill="none" stroke="#60A5FA" stroke-width="2" />
-                      <line x1="50" y1="50" x2="90" y2="50" stroke="#60A5FA" stroke-width="2" />
-                      <line x1="50" y1="50" x2="50" y2="90" stroke="#60A5FA" stroke-width="2" />
-                      <line x1="50" y1="50" x2="10" y2="50" stroke="#60A5FA" stroke-width="2" />
-                      <line x1="50" y1="50" x2="50" y2="10" stroke="#60A5FA" stroke-width="2" />
-                      <line x1="50" y1="50" x2="78" y2="78" stroke="#60A5FA" stroke-width="2" />
-                      <line x1="50" y1="50" x2="22" y2="78" stroke="#60A5FA" stroke-width="2" />
-                      <line x1="50" y1="50" x2="78" y2="22" stroke="#60A5FA" stroke-width="2" />
-                      <line x1="50" y1="50" x2="22" y2="22" stroke="#60A5FA" stroke-width="2" />
-                    </svg>
-                  </div>
-                  <p class="text-sm text-gray-300 text-center">
-                    Representación de líneas de campo eléctrico
-                  </p>
-                </div>
+    this.shadowRoot.innerHTML = `
+      <style>
 
-                <div class="bg-gray-700 p-4 rounded-lg">
-                  <div class="text-center space-y-4">
-                    <h3 class="font-medium">Ecuación Fundamental</h3>
-                    <div class="text-2xl font-mono">E = F/q</div>
-                    <p class="text-sm text-gray-300">
-                      Donde:<br>
-                      E = Campo eléctrico<br>
-                      F = Fuerza eléctrica<br>
-                      q = Carga de prueba
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      `,
-  second: `
-        <div class="max-w-4xl mx-auto">
-          <h1 class="text-2xl font-semibold mb-6">Magnetismo</h1>
-          <div class="bg-gray-800 rounded-lg p-6">
-            <p class="text-gray-300">Contenido del segundo parcial...</p>
-          </div>
-        </div>
-      `
+        button {
+          border: none;
+        }
+
+        button:hover {
+          background-color: rgb(55 65 81 / 0.8);
+        }
+
+        .w-full {
+          width: 100%;
+        }
+
+        .text-left {
+          text-align: left;
+        }
+
+        .px-3 {
+          padding-left: 0.75rem;
+          padding-right: 0.75rem;
+        }
+
+        .py-2 {
+          padding-top: 0.5rem;
+          padding-bottom: 0.5rem;
+        }
+
+        .rounded {
+          border-radius: 0.25rem;
+        }
+
+        .hover\:bg-gray-700:hover {
+            background-color: rgb(55 65 81 / var(1, 1));
+        }
+
+        .text-sm {
+          font-size: 0.875rem;
+          line-height: 1.25rem;
+        }
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+          font-family: inherit;
+          /* 1 */
+          font-feature-settings: inherit;
+          /* 1 */
+          font-variation-settings: inherit;
+          /* 1 */
+          font-size: 100%;
+          /* 1 */
+          font-weight: inherit;
+          /* 1 */
+          line-height: inherit;
+          /* 1 */
+          letter-spacing: inherit;
+          /* 1 */
+          color: inherit;
+          /* 1 */
+          margin: 0;
+          /* 2 */
+          padding: 0;
+          /* 3 */
+        }
+
+        button,
+        select {
+          text-transform: none;
+        }
+
+
+        button,
+        input:where([type='button']),
+        input:where([type='reset']),
+        input:where([type='submit']) {
+          -webkit-appearance: button;
+          /* 1 */
+          background-color: transparent;
+          /* 2 */
+          background-image: none;
+          /* 2 */
+        }
+
+        ::-webkit-inner-spin-button,
+        ::-webkit-outer-spin-button {
+          height: auto;
+        }
+
+        ::-webkit-file-upload-button {
+          -webkit-appearance: button;
+          /* 1 */
+          font: inherit;
+          /* 2 */
+        }
+
+        button,
+        [role="button"] {
+          cursor: pointer;
+        }
+
+        :disabled {
+          cursor: default;
+        }
+
+
+      </style>
+      <button id="${idName}" data-route class="w-full text-left px-3 py-2 rounded hover:bg-gray-700 text-sm">
+        <i class="fas fa-file-alt mr-2"></i> ${name}
+      </button>
+    `;
+
+  }
+
+  connectedCallback() {
+    const router = new Router();
+  }
 }
 
-const router = new Router(routes)
+customElements.define("boton-component", BotonComponente)

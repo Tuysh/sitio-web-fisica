@@ -9,6 +9,8 @@ class NavbarComponent extends HTMLElement {
     this.attachShadow({ mode: "open" });
 
     const level = this.getAttribute("level") || "./";
+    const bgColor = this.getAttribute("color") || "#fff";
+    const txtColor = bgColor !== "#fff"? '#fff': '#212121';
 
     this.shadowRoot.innerHTML = `
       <style>
@@ -17,10 +19,10 @@ class NavbarComponent extends HTMLElement {
           top: 0;
           left: 0;
           right: 0;
-          background-color: white;
+          background-color: ${bgColor};
           height: 60px;
           z-index: 1000;
-          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+          ${bgColor !== "#fff"? '': 'border-bottom: 1px solid rgba(0, 0, 0, 0.1);'}
         }
 
         .navbar-container {
@@ -36,7 +38,7 @@ class NavbarComponent extends HTMLElement {
         .logo {
           font-size: 20px;
           font-weight: bold;
-          color: #171717;
+          color: ${txtColor};
           text-decoration: none;
         }
 
@@ -47,7 +49,7 @@ class NavbarComponent extends HTMLElement {
         }
 
         .nav-link {
-          color: #171717;
+          color: ${txtColor};
           text-decoration: none;
           font-size: 15px;
           font-weight: 500;
@@ -95,7 +97,7 @@ class NavbarComponent extends HTMLElement {
         }
 
         .mobile-menu-links a {
-          color: #171717;
+          color: ${txtColor};
           text-decoration: none;
           font-size: 24px;
           font-weight: 500;
@@ -130,7 +132,7 @@ class NavbarComponent extends HTMLElement {
             left: 12px;
             right: 12px;
             height: 2px;
-            background-color: #171717;
+            background-color: ${txtColor};
             transform: scaleX(0);
             transition: transform 0.3s ease;
           }
@@ -143,7 +145,7 @@ class NavbarComponent extends HTMLElement {
       </style>
       <nav class="navbar">
         <div class="navbar-container">
-          <a href="${level}/index.html" class="logo">FísicaLab</a>
+          <a href="${level}index.html" class="logo">FísicaLab</a>
           <ul class="nav-menu">
             <li><a href="${level}notas/index.html" class="nav-link">Notas</a></li>
             <li><a href="${level}simuladores/index.html" class="nav-link">Simuladores</a></li>
