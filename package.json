@@ -1,0 +1,24 @@
+{
+  "name": "sitio-web-fisica",
+  "version": "1.0.0",
+  "description": "Sitio Web de Fisica",
+  "main": "index.html",
+  "scripts": {
+    "dev": "tailwindcss -i static/css/style.css -o static/css/styles.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/pardalis/sitio-web-fisica.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/pardalis/sitio-web-fisica/issues"
+  },
+  "homepage": "https://gitlab.com/pardalis/sitio-web-fisica#readme",
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.15",
+    "tailwindcss": "^3.4.17"
+  }
+}
