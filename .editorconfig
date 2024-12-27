@@ -6,19 +6,19 @@ root = true
 [*]
 charset = utf-8       # Codificación de caracteres
 end_of_line = lf      # Usar saltos de línea LF (Unix-style)
-indent_style = space  # Usar espacios para indentación
-indent_size = 2       # Tamaño de la indentación (2 espacios)
+indent_style = tab  # Usar espacios para indentación
+indent_size = 4       # Tamaño de la indentación (2 espacios)
 trim_trailing_whitespace = true  # Eliminar espacios al final de las líneas
 insert_final_newline = true      # Asegurar una línea en blanco al final del archivo
 
 # Configuración específica para HTML
 [*.html]
-indent_size = 2       # 2 espacios, más común para HTML
+indent_size = 4       # 2 espacios, más común para HTML
 
 # Configuración específica para CSS
 [*.css]
-indent_size = 2       # Consistencia con HTML y JavaScript
+indent_size = 4       # Consistencia con HTML y JavaScript
 
 # Configuración específica para JavaScript
 [*.js]
-indent_size = 2       # 2 espacios, estándar en JavaScript moderno
+indent_size = 4       # 2 espacios, estándar en JavaScript moderno

@@ -4,7 +4,7 @@
   "description": "Sitio Web de Fisica",
   "main": "index.html",
   "scripts": {
-    "dev": "tailwindcss -i static/css/style.css -o static/css/styles.css --watch"
+    "dev": "tailwindcss -i public/static/css/style.css -o public/static/css/styles.css --watch"
   },
   "repository": {
     "type": "git",

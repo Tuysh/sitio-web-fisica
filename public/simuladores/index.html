@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/css/global.css">
+  <link rel="stylesheet" href="../static/css/styles.css">
+  <link rel="stylesheet" href="../static/css/simuladores.css">
+  <title>Simuladores</title>
+</head>
+<body>
+
+  <navbar-component level="../"></navbar-component>
+
+  <div class="container">
+    <header class="header">
+      <h1 class="title">Simuladores de Física</h1>
+      <p class="subtitle">Explora conceptos físicos a través de simulaciones interactivas diseñadas para mejorar tu
+        comprensión</p>
+    </header>
+
+    <div class="simulators-grid">
+      <a class="simulator-card" href="repulsion/">
+        <div class="simulator-image" style="background-image: url('../static/img/simuladores/repulsion.png')">
+          <span class="difficulty basic">Básico</span>
+        </div>
+        <div class="simulator-content">
+          <h3 class="simulator-title">Simulador </h3>
+          <p class="simulator-description">Visualiza el comportamiento de particulas y su repulsion</p>
+          <div class="simulator-tags">
+            <span class="tag">Particulas</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="simulator-card" href="campo-electrico/">
+        <div class="simulator-image" style="background-image: url('../static/img/simuladores/campo-electrico.png')">
+          <span class="difficulty basic">Básico</span>
+        </div>
+        <div class="simulator-content">
+          <h3 class="simulator-title">Campo Electrico</h3>
+          <p class="simulator-description">Visualiza el comportamiento de las lineas del campo electrico</p>
+          <div class="simulator-tags">
+            <span class="tag">Campo Electrico</span>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <script>
+      const filterButtons = document.querySelectorAll('.filter-button');
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+        });
+      });
+    </script>
+
+    <script src="../static/js/global.js"></script>
+</body>
+
+
+</html>

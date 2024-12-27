@@ -1,0 +1,169 @@
+body {
+  background-color: white;
+  overflow: hidden;
+  margin: 0px;
+  display: flex;
+}
+
+canvas {
+  position: absolute;
+  z-index: 1;
+}
+
+.sideNav {
+  padding: 10px;
+  position: absolute;
+  z-index: 9;
+  width: 20%;
+  height: 95%;
+  background: #28292E;
+  overflow: auto;
+  box-shadow: 2px 2px 3px #888888;
+  border-radius: 1svh;
+  top: 0.69svh;
+  left: 0.69svh;
+  font: Roboto;
+  color: white;
+}
+
+.open {
+  animation-name: sidenavAnimOpen;
+  animation-duration: .3s;
+}
+
+.closed {
+  transform: translateX(-100%);
+  animation-name: sidenavAnimClose;
+  animation-duration: .3s;
+}
+
+.electron {
+  color: red;
+}
+
+.proton {
+  color: blue;
+
+}
+
+@keyframes sidenavAnimOpen {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes sidenavAnimClose {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.pi {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 1.5svh;
+}
+
+.particulas {
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.zoom {
+  margin-right: 5svh;
+}
+
+.posicion {
+  text-align: center;
+  font-size: 13px;
+}
+
+.borrar {
+  display: block;
+  margin: auto;
+  text-align: center;
+  font-size: 12px;
+}
+
+.headers {
+  padding: 1svh;
+  text-align: center;
+  position: sticky;
+  width: 98%;
+  height: fit-content;
+  border-radius: 15px;
+  right: 3svh;
+  left: 3svh;
+  font: bolder;
+  box-shadow: 2px 2px 3px #888888;
+}
+
+.nava {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ula {
+  list-style: none;
+  display: flex;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border-radius: 15px;
+}
+
+.inicio {
+  margin-right: auto;
+  border-radius: 2svh;
+}
+
+.modos {
+  display: flex;
+  gap: 3svh;
+  margin-left: 5svh;
+  right: 3svh;
+  border-radius: 3svh;
+}
+
+.texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80svh;
+  font-size: 6svh;
+}
+
+.pis {
+  text-align: center;
+  padding: auto;
+}
+
+.btn-square {
+  text-align: center;
+  font-size: 2svh;
+  font-weight: 800;
+  padding: 0.3svh;
+  border-radius: 0.3svh;
+  background-color: white;
+  border-color: none;
+  padding-inline: 5svw;
+  margin-block: 1svh;
+  border: none;
+}

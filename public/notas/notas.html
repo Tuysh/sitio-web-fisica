@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../static/css/global.css">
+	<link rel="stylesheet" href="../static/css/styles.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+	<style>
+		.contenido {
+			margin-top: 60px;
+		}
+	</style>
+	<title>Notas</title>
+</head>
+
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+	<navbar-component level="../" color="#1f2937"></navbar-component>
+	<div class="contenido">
+		<nav class="bg-gray-800 border-b border-gray-700">
+			<div class="flex items-center px-2 py-1 space-x-4">
+				<div class="flex-1 flex justify-end">
+					<div class="relative">
+						<input type="text" placeholder="Buscar..."
+							class="bg-gray-700 px-4 py-1.5 rounded text-sm w-64 focus:outline-none focus:ring-2 focus:ring-blue-500">
+						<i class="fas fa-search absolute right-3 top-2 text-gray-400"></i>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<div class="flex">
+			<aside class="w-64 bg-gray-800 h-screen p-4">
+				<div class="space-y-4">
+					<details class="space-y-2">
+						<summary
+							class="text-sm uppercase tracking-wider text-gray-400 px-2 cursor-pointer hover:text-gray-300">
+							<i class="fa-solid fa-book"></i>
+							Campo Eléctrico
+						</summary>
+						<div class="space-y-1 pl-4">
+							{{range .Campo}}
+							<a class="w-full text-left px-3 py-2 rounded hover:bg-gray-700 text-sm truncate block" href="{{.Url}}">
+								<i class="fas fa-file-alt mr-2"></i> {{.Title}}
+							</a>
+							{{end}}
+						</div>
+					</details>
+
+					<details class="space-y-2">
+						<summary
+							class="text-sm uppercase tracking-wider text-gray-400 px-2 cursor-pointer hover:text-gray-300">
+							<i class="fa-solid fa-book"></i>
+							Segundo Semestre
+						</summary>
+						<div class="space-y-1 pl-4">
+							{{range .Potencial}}
+							<a class="w-full text-left px-3 py-2 rounded hover:bg-gray-700 text-sm truncate block" href="{{.Url}}">
+								<i class="fas fa-file-alt mr-2"></i> {{.Title}}
+							</a>
+							{{end}}
+						</div>
+					</details>
+
+					<div class="space-y-1">
+						<button data-route="material"
+							class="w-full text-left px-3 py-2 rounded hover:bg-gray-700 text-sm">
+							<i class="fas fa-book-open mr-2"></i> Material de apoyo
+						</button>
+						<button data-route="questions"
+							class="w-full text-left px-3 py-2 rounded hover:bg-gray-700 text-sm">
+							<i class="fas fa-users mr-2"></i> Preguntas de alumnos
+						</button>
+					</div>
+				</div>
+			</aside>
+
+			<main class="flex-1 w-full" id="main-content">
+				<iframe src="{{.Contenido}}" frameborder="0" class="w-full h-full rounded-2xl"></iframe>
+			</main>
+		</div>
+	</div>
+
+	<script src="../static/js/global.js"></script>
+</body>
+
+</html>

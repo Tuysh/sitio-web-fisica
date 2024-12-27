@@ -1,0 +1,109 @@
+main {
+  display: grid;
+  place-content: center;
+  text-align: center;
+  padding: 80px;
+}
+
+.hero {
+  height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ed 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-title {
+  font-size: 2.5rem;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.welcome-subtitle {
+  font-size: 1.5rem;
+  color: #666;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 30px;
+  line-height: 1.8;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.feature-item {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+}
+
+.feature-title {
+  font-size: 1.2rem;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.feature-text {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #2563eb;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  margin-top: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #1d4ed8;
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+      padding: 30px 20px;
+  }
+
+  .welcome-title {
+      font-size: 2rem;
+  }
+
+  .welcome-subtitle {
+      font-size: 1.2rem;
+  }
+
+  .features {
+      grid-template-columns: 1fr;
+  }
+}
