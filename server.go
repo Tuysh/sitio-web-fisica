@@ -50,6 +50,7 @@ var NotasTotales = [][]Nota{
 }
 
 func main() {
+	gin.SetMode(gin.ReleaseMode)
 	r := gin.Default()
 
 	r.StaticFS("/public", http.Dir("./public"))
@@ -58,7 +59,8 @@ func main() {
 
 	router(r)
 
-	r.Run()
+	r.SetTrustedProxies(nil)
+	r.Run(":8080")
 }
 
 func router(r *gin.Engine) {
