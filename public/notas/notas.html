@@ -23,8 +23,10 @@
 				<div class="flex-1 flex justify-end">
 					<div class="relative">
 						<input type="text" placeholder="Buscar..."
-							class="bg-gray-700 px-4 py-1.5 rounded text-sm w-64 focus:outline-none focus:ring-2 focus:ring-blue-500">
+							class="bg-gray-700 px-4 py-1.5 rounded text-sm w-64 focus:outline-none focus:ring-2 focus:ring-blue-500" id="searchInput">
 						<i class="fas fa-search absolute right-3 top-2 text-gray-400"></i>
+						<div id="searchResults" class="absolute w-full bg-gray-800 mt-1 rounded-md shadow-lg hidden">
+						</div>
 					</div>
 				</div>
 			</div>
@@ -83,6 +85,81 @@
 	</div>
 
 	<script src="../static/js/global.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			const searchInput = document.getElementById('searchInput');
+			const searchResults = document.getElementById('searchResults');
+			const iframe = document.querySelector('iframe');
+			let timeoutId;
+
+			function loadResult(path) {
+				iframe.src = '/' + path;
+				searchResults.classList.add('hidden');
+				searchInput.value = '';
+			}
+
+			function createResultElement(result) {
+				const div = document.createElement('div');
+				div.className = 'p-3 hover:bg-gray-700 cursor-pointer text-sm';
+				div.innerHTML = `
+	                    <div class="font-medium">${result.title}</div>
+	                    <div class="text-gray-400 text-xs mt-1">${result.fragment}</div>
+	                `;
+				div.addEventListener('click', () => loadResult(result.path));
+				return div;
+			}
+
+			async function performSearch(query) {
+				try {
+					const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
+					if (!response.ok) {
+						throw new Error(`HTTP error! status: ${response.status}`);
+					}
+					const results = await response.json();
+
+					// Limpiar resultados anteriores
+					searchResults.innerHTML = '';
+
+					if (results.length > 0) {
+						results.forEach(result => {
+							searchResults.appendChild(createResultElement(result));
+						});
+						searchResults.classList.remove('hidden');
+					} else {
+						searchResults.innerHTML = '<div class="p-3 text-gray-400 text-sm">No se encontraron resultados</div>';
+						searchResults.classList.remove('hidden');
+					}
+				} catch (error) {
+					console.error('Error en la búsqueda:', error);
+					searchResults.innerHTML = '<div class="p-3 text-red-400 text-sm">Error al realizar la búsqueda</div>';
+					searchResults.classList.remove('hidden');
+				}
+			}
+
+			searchInput.addEventListener('input', function (e) {
+				clearTimeout(timeoutId);
+				const query = e.target.value.trim();
+
+				if (query.length >= 3) {
+					timeoutId = setTimeout(() => performSearch(query), 300);
+				} else {
+					searchResults.classList.add('hidden');
+				}
+			});
+
+			document.addEventListener('click', function (e) {
+				if (!searchInput.contains(e.target)) {
+					searchResults.classList.add('hidden');
+				}
+			});
+
+			document.addEventListener('keydown', function (e) {
+				if (e.key === 'Escape') {
+					searchResults.classList.add('hidden');
+				}
+			});
+		});
+	</script>
 </body>
 
 </html>

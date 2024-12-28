@@ -1,18 +1,27 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
+	"io"
 	"net/http"
 	"os"
 	"path/filepath"
 	"strings"
 
 	"github.com/gin-gonic/gin"
+	"golang.org/x/net/html"
 )
 
 type Nota struct {
 	Title string
 	Url   string
+}
+
+type SearchResult struct {
+	Title    string `json:"title"`
+	Path     string `json:"path"`
+	Fragment string `json:"fragment"`
 }
 
 const PATH_NOTES = "public/notas/pages/"
@@ -103,6 +112,22 @@ func router(r *gin.Engine) {
 		})
 	}
 
+	r.GET("/api/search", func(c *gin.Context) {
+		query := c.Query("q")
+		if query == "" {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Query parameter 'q' is required"})
+			return
+		}
+
+		results, err := searchInFiles(query)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+
+		c.JSON(http.StatusOK, results)
+	})
+
 	r.GET("/hello", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"message": "Hello World",
@@ -135,4 +160,73 @@ func findFile(filename string) (string, error) {
 	}
 
 	return result, nil
+}
+
+func extractText(r io.Reader) (string, error) {
+	var buf bytes.Buffer
+	tokenizer := html.NewTokenizer(r)
+
+	for {
+		tokenType := tokenizer.Next()
+		if tokenType == html.ErrorToken {
+			if tokenizer.Err() == io.EOF {
+				break
+			}
+			return "", tokenizer.Err()
+		}
+
+		if tokenType == html.TextToken {
+			text := strings.TrimSpace(string(tokenizer.Text()))
+			if text != "" {
+				buf.WriteString(text + " ")
+			}
+		}
+	}
+	return buf.String(), nil
+}
+
+func searchInFiles(query string) ([]SearchResult, error) {
+	var results []SearchResult
+	basePath := "./public/notas"
+
+	err := filepath.Walk(basePath, func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+
+		if !info.IsDir() && strings.HasSuffix(path, ".html") {
+			file, err := os.Open(path)
+			if err != nil {
+				return err
+			}
+			defer file.Close()
+
+			content, err := extractText(file)
+			if err != nil {
+				return err
+			}
+
+			if strings.Contains(strings.ToLower(content), strings.ToLower(query)) {
+				index := strings.Index(strings.ToLower(content), strings.ToLower(query))
+				start := index - 50
+				if start < 0 {
+					start = 0
+				}
+				end := index + len(query) + 50
+				if end > len(content) {
+					end = len(content)
+				}
+				fragment := content[start:end]
+
+				results = append(results, SearchResult{
+					Title:    filepath.Base(path),
+					Path:     filepath.ToSlash(path),
+					Fragment: "..." + fragment + "...",
+				})
+			}
+		}
+		return nil
+	})
+
+	return results, err
 }
