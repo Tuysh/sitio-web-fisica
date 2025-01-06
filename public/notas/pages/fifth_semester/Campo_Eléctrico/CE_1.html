@@ -11,8 +11,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 
-<body class="bg-[#202938] flex items-center justify-center overflow-x-hidden">
-    <div class="bg-[#202938] p-8 max-w-4xl w-full text-white">
+<body style="text-align: justify;"  class="bg-gray-800 text-white min-h-screen">
+    <div class="p-8 max-w-4xl w-full text-white">
         <span class="text-blue-600 text-2xl font-bold">Concepto:</span>
         <p class="text-red-600 text-lg mt-2">
             Digamos que el campo eléctrico es el aurea de las cargas eléctricas. 😊
@@ -26,8 +26,15 @@
             posteriormente sumar dichas fuerzas y obtener la fuerza neta o total sobre \(q_0\).
             Ejemplificando lo anterior:
         </p>
-        <div class="grid place-items-center mt-4">
-            <img src="images/CE_1/1.png" alt="figura1" class="w-full h-auto max-w-lg">
+        <div style="border-radius: 2svh;" class="bg-gray-700 p-4 flex items-center">
+            <img src="images/CE_1/1.svg" alt="figura1" style="width: 45svh; height: 45svh; padding-left: 8rem;" class="mr-2">
+            <div class="flex flex-col justify-center">
+                <p class="text-base mt-4">
+                    Supongamos que: \(q_0\), \(q_1\) y \(q_3\) son positivas y \(q_2\) es negativa.
+                    <br>
+                    Así: \(\vec{F}_{TOTAL} = \vec{F}_{0-1} + \vec{F}_{0-2} + \vec{F}_{0-3}\) 
+                </p>
+            </div>
         </div>
         <p class="text-base mt-4">
             Generalmente existe un gran conjunto de partículas cargadas en la materia, si queremos medir la fuerza que
@@ -41,8 +48,20 @@
         <p class="text-base mt-4">
             Entonces, la figura anterior la podemos proponer como:
         </p>
-        <div class="grid place-items-center mt-4">
-            <img src="images/CE_1/2.png" alt="figura2" class="w-full h-auto max-w-lg">
+        <div style="border-radius: 2svh;" class="bg-gray-700 p-4 flex items-center">
+            <img src="images/CE_1/2.svg" alt="figura2" style="width: 45svh; height: 45svh; padding-left: 8rem;" class="mr-2">
+            <div class="flex flex-col justify-center">
+                <p class="text-base mt-4">
+                    <label class="text-red-600 mt-4">
+                        Observemos que ahora en vez de \(q_0\) hemos puesto el punto O(0,0,0). 😊
+                    </label>
+                    <br>
+                    Hemos considerado que en el punto O colocamos una carga de prueba \(q_0\) que no afecta el campo eléctrico de las cargas \(q_1\), \(q_2\) y \(q_3\), en este caso:
+                    \[
+                    \vec{E} = \lim_{q_0 \to 0} \frac{\vec{F}}{q_0}
+                    \]
+                </p>
+            </div>
         </div>
         <p class="text-base mt-4">
             Así, en forma general podemos tener una primera expresión para el campo eléctrico:
@@ -51,11 +70,11 @@
             \]
 
             Donde:<br>
-            \(\vec{E}\):<label class="text-red-600 mt-4">En un campo Eléctrico.</label>
+            \(\vec{E}\): <label class="text-red-600 mt-4">En un campo Eléctrico.</label>
             <br>
-            \(\vec{F}\):<label class="text-red-600 mt-4">Interactúa.</label>
+            \(\vec{F}\): <label class="text-red-600 mt-4">Interactúa.</label>
             <br>
-            \(q_0\):<label class="text-red-600 mt-4">Una carga, cuerpo o sistema de naturaleza eléctrica.</label>
+            \(q_0\): <label class="text-red-600 mt-4">Una carga, cuerpo o sistema de naturaleza eléctrica.</label>
             <br>
             <label class="text-red-600 text-lg mt-2">Es decir, una carga, cuerpo o sistema de naturaleza eléctrica
                 interactúa con un campo eléctrico. 😊</label>
@@ -70,19 +89,32 @@
             naturaleza eléctrica y lo podemos medir colocando una carga de prueba en él y midiendo los efectos que ésta
             experimenta.
         </p>
-        <div class="grid place-items-center mt-4">
-            <img src="images/CE_1/3.png" alt="figura3" class="w-full h-auto max-w-lg">
+        <div style="border-radius: 2svh;" class="bg-gray-700 flex items-center justify-center">
+            <div class="text-center p-4"> <!-- Añadido text-center para centrar el texto -->
+                <img src="images/CE_1/3.svg" alt="figura3" style="width: 50svh; height: 50svh; display: block; margin-left: auto; margin-right: auto;" class="mb-1"> <!-- Añadido mb-2 para margen inferior -->
+                <p class="text-base">
+                    <label class="text-red-600 mt-4">
+                    Los puntos 1,2,3,4,n forman parte del campo eléctrico generado por Q. Al colocar \(q_0\) en cualquiera de estos puntos tendrá una interacción con el campo eléctrico generado por Q. 😊
+                    <br>
+                    Hacer el ejemplo del olor.
+                    </label>                
+                </p>
+            </div>
         </div>
         <p class="text-base mt-4">
             Por otra parte, los campos eléctricos pueden tener su origen en:
         </p>
-        <div class="grid place-items-center mt-4">
-            <img src="images/CE_1/4.png" alt="figura3" class="w-full h-auto max-w-lg">
+        <div style="border-radius: 2svh;" class="bg-gray-700 flex items-center justify-center">
+            <div class="text-center p-4"> <!-- Añadido text-center para centrar el texto -->
+                <img src="images/CE_1/4.svg" alt="figura4" style="width: 50svh; height: 20svh; display: block; margin-left: auto; margin-right: auto;" class="mb-1"> <!-- Añadido mb-2 para margen inferior -->
+                <p class="text-base mt-4">
+                    <label class="text-red-600">
+                        Para nuestro caso solamente revisaremos el origen de los campos eléctricos por cargas eléctricas. 😊
+                    </label>             
+                </p>
+            </div>
         </div>
         <p class="text-base mt-4">
-            <label class="text-red-600 text-lg mt-2">
-                Para nuestro caso solamente revisaremos el origen de los campos eléctricos por cargas eléctricas. 😊
-            </label>
             <br>
             Por el momento, solamente estudiaremos el campo eléctrico generado por cargas eléctricas en reposo, es decir
             estudiaremos el campo eléctrico estático.
@@ -103,19 +135,23 @@
                 \widehat{r}_{1-2}}{q_1}\)</li>
         </ul>
         \(q \rightarrow 0\), recordemos que la carga \(q_1\) no debe alterar el campo de \(q_2\)
+        <div style="border-radius: 2svh;" class="bg-gray-700 flex items-center justify-center" >
         <label class="text-purple-400">
             \[
             \vec{E}_1 = \frac{1}{4\pi\varepsilon_0} \frac{q_2}{r^2}\widehat{r}_{1-2}
             \]
         </label>
+        </div>
         Tengamos presente que la expresión anterior es cuando el observador está situado en la carga que genera el campo
         eléctrico. Pero si el observador está en otra posición, la expresión matemática sería:
+        <div style="border-radius: 2svh;" class="bg-gray-700 flex items-center justify-center">
         <label class="text-purple-400">
             \[
             \vec{E}_1 = \frac{1}{4\pi\varepsilon_0} \frac{q_2}{\parallel \vec{r}_{0-2}-\vec{r}_{0-1} \parallel^3}
             \vec{r}_{0-2}-\vec{r}_{0-1}
             \]
         </label>
+        </div>
         que es la definición de campo eléctrico \(E(r)\). Ambas propuestas NO contienen ninguna referencia a una carga
         de prueba \(q_0\). El campo eléctrico es una función de posición <label class="text-purple-400">\(\vec{E} =
             f(\vec{r})\)</label> o <label class="text-purple-400">\(\vec{E}\). <b class="font-bold">A las funciones de
@@ -145,8 +181,10 @@
             Así, se considera al campo eléctrico como una distorsión electromagnética que sufre el espacio debido a la
             presencia de una carga eléctrica.
         </p>
-        <div class="grid place-items-center mt-4">
-            <img src="images/CE_1/5.png" alt="figura3" class="w-full h-auto max-w-lg">
+        <div style="border-radius: 2svh;" class="bg-gray-700 flex items-center justify-center">
+            <div class="text-center p-4"> <!-- Añadido text-center para centrar el texto -->
+                <img src="images/CE_1/5.svg" alt="figura3" style="width: 50svh; height: 50svh; display: block; margin-left: auto; margin-right: auto;" class="mb-1"> <!-- Añadido mb-2 para margen inferior -->
+            </div>
         </div>
         <p class="text-base mt-4">
             El orden en que estudiaremos el campo eléctrico será el siguiente:
@@ -160,13 +198,18 @@
         <span class="text-green-500 text-2xl font-bold">Ejemplos sobre campo eléctrico generado por cargas
             puntuales</span>
         <p class="text-base mt-4">
-            1.- En el átomo de helio ionizado (un átomo de helio en el que uno de sus dos electrones se ha retirado), el electrón y el núcleo están separados por una distancia de \(26.5 pm\). ¿cuál es el campo eléctrico debido al núcleo en la localización del electrón?
+            1.- En el átomo de helio ionizado (un átomo de helio en el que uno de sus dos electrones se ha retirado), el
+            electrón y el núcleo están separados por una distancia de \(26.5 pm\). ¿cuál es el campo eléctrico debido al
+            núcleo en la localización del electrón?
         </p>
         <p class="text-base mt-4">
-            2.- La figura muestra una carga \(q_1 = +1.5\mu C\) y una carga \(q_2 = +2.3\mu C\). La primera carga está en el origen del eje \(X\), y la segunda está en una posición \(X=L\), donde \(L = 13 cm\). ¿En qué punto \(P\), a lo largo del eje \(X\), es cero el campo eléctrico?
+            2.- La figura muestra una carga \(q_1 = +1.5\mu C\) y una carga \(q_2 = +2.3\mu C\). La primera carga está
+            en el origen del eje \(X\), y la segunda está en una posición \(X=L\), donde \(L = 13 cm\). ¿En qué punto
+            \(P\), a lo largo del eje \(X\), es cero el campo eléctrico?
         </p>
         <p class="text-base mt-4">
-            Además, realizar en clase los problemas 1, 8, 38 y 47. Antes de realizar los problemas 38 y 47 hablar sobre movimiento (física 1 y física 2).
+            Además, realizar en clase los problemas 1, 8, 38 y 47. Antes de realizar los problemas 38 y 47 hablar sobre
+            movimiento (física 1 y física 2).
         </p>
         <p class="text-base mt- text-red-600">
             Tarea: problemas de cargas puntuales del 1-9 y los problemas 36,37 39,41, 42 y 43 capítulo 28.
@@ -176,21 +219,28 @@
             Dinámica de la partícula cargada en un campo eléctrico uniforme.
         </span>
         <p class="text-base mt-4">
-            Partimos de \(\vec{F} = m \vec{a}\), entonces si \(\vec{E}\) es uniforme,  \(\vec{F}\) y \(\vec{a}\) serán constantes o uniformes también. Para nuestro caso, entonces tendremos que:
+            Partimos de \(\vec{F} = m \vec{a}\), entonces si \(\vec{E}\) es uniforme, \(\vec{F}\) y \(\vec{a}\) serán
+            constantes o uniformes también. Para nuestro caso, entonces tendremos que:
         </p>
         <p class="text-base mt-4">
-            Si \(v_f > v_0\) o \(v_f < v_0\) tenemos una \(\vec{a}\) y así una \(\vec{F}\) y por ende, en nuestro caso, un \(\vec{E}\)
-            \[
-            es \ decir: \ v_f > v_0 \ \  o \ \  v_f < v_0 \Rightarrow \vec{a} \Rightarrow \vec{F} \Rightarrow \vec{E}
-            \]
-        </p>
-        <p class="text-base mt-4">
-            Que también podemos tener la secuencia en sentido contrario:
-            \[
-            \vec{E} \Rightarrow \vec{F} \Rightarrow \vec{a} \Rightarrow v_f > v_0 \ \ o \ \ v_f < v_0
-            \]
-            El campo eléctrico referido a los problemas que realizaremos será considerado en la región ubicada entre placas cargadas, teniendo presente que éste cae súbitamente a cero cuando la partícula deja dicha región. En realidad, el campo eléctrico disminuye rápidamente (\(\vec{E} \rightarrow 0\)) con la distancia, cuando ésta es del orden del espaciamiento entre las placas o mayor. Por otra parte, debemos considerar que: cuando la distancia es pequeña, no se comete un error demasiado grande al calcular el movimiento de la partícula si hacemos caso omiso del efecto de borde (realizar experimento en laboratorio). Finalmente, la fuerza electrostática que actúa sobre una partícula cargada, ubicada en un campo eléctrico externo, tendrá la dirección de dicho campo eléctrico externo, si su carga es positiva y la dirección opuesta si la carga es de la partícula es negativa.
-        </p>
+            Si \(v_f > v_0\) o \(v_f < v_0\) tenemos una \(\vec{a}\) y así una \(\vec{F}\) y por ende, en nuestro caso,
+                un \(\vec{E}\) \[ es \ decir: \ v_f> v_0 \ \ o \ \ v_f < v_0 \Rightarrow \vec{a} \Rightarrow \vec{F}
+                    \Rightarrow \vec{E} \] </p>
+                    <p class="text-base mt-4">
+                        Que también podemos tener la secuencia en sentido contrario:
+                        \[
+                        \vec{E} \Rightarrow \vec{F} \Rightarrow \vec{a} \Rightarrow v_f > v_0 \ \ o \ \ v_f < v_0 
+                        \] El
+                            campo eléctrico referido a los problemas que realizaremos será considerado en la región
+                            ubicada entre placas cargadas, teniendo presente que éste cae súbitamente a cero cuando la
+                            partícula deja dicha región. En realidad, el campo eléctrico disminuye rápidamente
+                            (\(\vec{E} \rightarrow 0\)) con la distancia, cuando ésta es del orden del espaciamiento
+                            entre las placas o mayor. Por otra parte, debemos considerar que: cuando la distancia es
+                            pequeña, no se comete un error demasiado grande al calcular el movimiento de la partícula si
+                            hacemos caso omiso del efecto de borde (realizar experimento en laboratorio). Finalmente, la
+                            fuerza electrostática que actúa sobre una partícula cargada, ubicada en un campo eléctrico
+                            externo, tendrá la dirección de dicho campo eléctrico externo, si su carga es positiva y la
+                            dirección opuesta si la carga es de la partícula es negativa. </p>
     </div>
     <script src="../../static/js/global.js"></script>
     <script src="../../static/js/notas.js"></script>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campo Eléctrico Segunda Parte</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-800 text-white min-h-screen">
+    <div class="p-4 sm:p-6 lg:p-8 max-w-4xl mx-auto">
+        <span class="block text-blue-600 text-xl sm:text-2xl font-bold">
+            Dipolo eléctrico
+        </span>
+        <p class="text-sm sm:text-base mt-2 sm:mt-4"></p>
+        Consideremos el siguiente dipolo situado en un campo eléctrico uniforme y externo a él. Observamos que las
+        fuerzas, sobre las cargas positiva y negativa, generada por el campo eléctrico externo y <span
+            class="font-bold">uniforme</span> son de la
+        misma magnitud y dirección, pero de sentido contrario. <span
+            class="text-sm sm:text-base mt-2 sm:mt-4 text-red-600">(Los alumnos deberán indicar cuál es el sentido de
+            cada
+            fuerza).</span> Es decir, el campo eléctrico será el mismo en ambas cargas. Por lo que:
+        \(\left\Vert\vec{F}_1\right\Vert = \left\Vert\vec{F}_2\right\Vert \ es \ decir; \
+        \left\Vert\vec{E}q\right\Vert\) tendrá el mismo valor tanto para \(+q\) como para \(–q\).
+        </p>
+        <div class="bg-gray-700 rounded-lg p-8 flex items-center justify-center mt-4">
+            <img src="images/CE_3/1.svg" alt="figura1" class="max-w-full h-auto rounded-md">
+        </div>
+        <p class="text-sm sm:text-base mt-2 sm:mt-4">
+            Por lo que, la fuerza neta externa ejercida por el campo eléctrico sobre el dipolo será igual a cero.<br>
+            La primera vez que hablamos del dipolo eléctrico mencionamos una característica de él: <br>
+        <div class="text-center">
+            <p class="text-sm sm:text-base mt-2 sm:mt-4 font-bold">El momento dipolar: <span
+                    class="font-bold">\(\boldsymbol{\vec{p} = q\vec{d}}\)</span></p>
+        </div>
+        donde la dirección del momento dipolar es de la carga negativa a la carga positiva; formando el vector del
+        momento dipolar un ángulo \(\theta\) con el campo eléctrico externo.<br>
+        Por otra parte, en el centro de masa del dipolo existe un momento de torsión \(\vec{\tau}\), el cual tiende a
+        girar al dipolo para llevar a \(\vec{p}\) a alinearse con \(\vec{E}\).
+        <br>
+        <div class="text-center">
+        Así podemos decir que: \(\left\Vert\vec{\tau}\right\Vert= 2F\left(\frac{d}{2} \right)\sin{\theta}; \ pero \ F = Eq, \ entonces:\left\Vert\vec{\tau}\right\Vert = 2Eq\left(\frac{d}{2} \right)\sin{\theta}\)<br>
+        es decir: \(\left\Vert\vec{\tau}\right\Vert = F\left(d\right)\sin{\theta}\); \(\left\Vert\vec{\tau}\right\Vert = Eqd\sin{\theta}\)<br>
+        pero: \(qd = p\)<br>
+        entonces: \(\left\Vert\vec{\tau}\right\Vert = Ep\sin{\theta}\)<br>
+        Por otra parte, como \(\vec{p}\) se va a alinear con \(\vec{E}\), entonces \(\vec{p}\) sigue a \(\vec{E}\).
+        </div>
+        Por lo que finalmente:
+        <div class="bg-gray-700 rounded-lg p-2 flex items-center justify-center mt-4">
+            <p class="text-sm sm:text-base mt-2 sm:mt-4">
+                \[
+                \vec{\tau} = \vec{p} \times \vec{E}
+                \]
+            </p>
+        </div>
+        <span class="text-red-600">
+            Para nuestro caso, la dirección del momento de torsión \(\vec{\tau}\) es perpendicular al pizarrón y entrando a él. Recordar la regla de la mano derecha. <br><br>
+            Hasta aquí dejaremos el tema de dipolo eléctrico en un campo eléctrico, ya que uno de los objetivos de revisar este tema es trabajar el concepto de fuerza conservativa en la dinámica de la partícula; usando tanto las leyes de Newton como la conservación de la energía. En nuestro programa de estudios no se encuentra el estudio de la dinámica rotacional.  
+        </span><br>
+        <span class="block text-blue-600 text-xl sm:text-2xl font-bold">Resumen</span>
+        Hemos hablado de cargas y campos y debemos tener presente que:<br><br>
+        <ul class="pl-4 sm:pl-10">
+            <li>1.- en el concepto clásico (es el que estamos revisando) hay una marcada diferencia entre los campos y las partículas ya que se consideran como entidades distintas.</li>
+            <li>2.- en la teoría moderna las partículas son manifestaciones de los campos; es decir las entidades fundamentales son los campos. ¿por qué?; por los valores que adquieren los campos en determinados puntos; es decir donde se mida una intensidad mayor de campo muy seguramente se encuentren partículas cargadas.</li>
+        </ul>
+        </p>
+    </div>
+
+    <script src="../../static/js/global.js"></script>
+    <script src="../../static/js/notas.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+
+</html>
