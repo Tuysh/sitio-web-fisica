@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -29,14 +30,14 @@ const PATH_NOTES = "public/notas/pages/"
 var NotasTotales = [][]Nota{
 	{
 		{Title: "Campo Electrico parte 1", Url: "CE_1"},
-		{Title: "Campo Electrico parte 2", Url: "1"},
-		{Title: "Dipolo en un campo eléctrico", Url: "2"},
-		{Title: "Distribuciones de carga parte 1", Url: "3"},
-		{Title: "Distribuciones de carga parte 2", Url: "4"},
-		{Title: "Distribuciones de carga parte 3", Url: "5"},
-		{Title: "Lineas de fuerza", Url: "6"},
-		{Title: "Notas extras", Url: "7"},
-		{Title: "Nuevas identidades de aprendizaje en la era digital", Url: "8"},
+		{Title: "Campo Electrico parte 2", Url: "CE_2"},
+		{Title: "Dipolo en un campo eléctrico", Url: "CE_3"},
+		{Title: "Distribuciones de carga parte 1", Url: "CE_4"},
+		{Title: "Distribuciones de carga parte 2", Url: "CE_5"},
+		{Title: "Distribuciones de carga parte 3", Url: "CE_6"},
+		{Title: "Lineas de fuerza", Url: "CE_7"},
+		{Title: "Notas extras", Url: "CE_8"},
+		{Title: "Nuevas identidades de aprendizaje en la era digital", Url: "CE_9"},
 	},
 	{
 		{Title: "POTENCIAL ELÉCTRICO primera parte", Url: "0"},
@@ -60,7 +61,8 @@ func main() {
 	router(r)
 
 	r.SetTrustedProxies(nil)
-	r.Run(":8080")
+	log.Println("OK :)")
+	r.Run(":7070")
 }
 
 func router(r *gin.Engine) {
