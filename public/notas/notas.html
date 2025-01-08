@@ -1,165 +1,283 @@
 <!DOCTYPE html>
 <html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- <link rel="stylesheet" href="../static/css/global.css" /> -->
+		<link rel="stylesheet" href="../static/css/styles.css" />
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+			rel="stylesheet"
+		/>
+		<style>
+			.contenido {
+				margin-top: 60px;
+			}
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="../static/css/global.css">
-	<link rel="stylesheet" href="../static/css/styles.css">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-	<style>
-		.contenido {
-			margin-top: 60px;
-		}
-	</style>
-	<title>Notas</title>
-</head>
+			/* Estilos responsivos */
+			.sidebar {
+				transition: transform 0.3s ease-in-out;
+			}
 
-<body class="bg-gray-900 text-gray-100 min-h-screen">
-	<navbar-component level="../" color="#1f2937"></navbar-component>
-	<div class="contenido">
-		<nav class="bg-gray-800 border-b border-gray-700">
-			<div class="flex items-center px-2 py-1 space-x-4">
-				<div class="flex-1 flex justify-end">
-					<div class="relative">
-						<input type="text" placeholder="Buscar..."
-							class="bg-gray-700 px-4 py-1.5 rounded text-sm w-64 focus:outline-none focus:ring-2 focus:ring-blue-500" id="searchInput">
-						<i class="fas fa-search absolute right-3 top-2 text-gray-400"></i>
-						<div id="searchResults" class="absolute w-full bg-gray-800 mt-1 rounded-md shadow-lg hidden">
+			.sidebar.hidden {
+				transform: translateX(-100%);
+			}
+
+			#searchInput {
+				width: 100%;
+				max-width: 256px;
+			}
+
+			/* Media queries para dispositivos móviles */
+			@media (max-width: 768px) {
+				.layout-container {
+					flex-direction: column;
+				}
+
+				.sidebar {
+					position: fixed;
+					left: 0;
+					top: 60px;
+					bottom: 0;
+					z-index: 40;
+					width: 80%;
+					max-width: 320px;
+				}
+
+				.main-content {
+					margin-left: 0;
+					width: 100%;
+					height: calc(100vh - 60px - 48px);
+				}
+
+				.toggle-sidebar {
+					display: block !important;
+				}
+
+				.search-container {
+					width: 100%;
+					padding: 0 1rem;
+				}
+			}
+		</style>
+		<title>Notas</title>
+	</head>
+
+	<body class="bg-gray-900 text-gray-100 min-h-screen">
+		<navbar-component level="../" color="#1f2937"></navbar-component>
+		<div class="contenido">
+			<nav class="bg-gray-800 border-b border-gray-700">
+				<div class="flex items-center px-2 py-1 space-x-4">
+					<button
+						class="toggle-sidebar hidden p-2 hover:bg-gray-700 rounded"
+						aria-label="Toggle sidebar"
+					>
+						<i class="fas fa-bars"></i>
+					</button>
+					<div class="flex-1 flex justify-end">
+						<div class="relative search-container">
+							<input
+								type="text"
+								placeholder="Buscar..."
+								class="bg-gray-700 px-4 py-1.5 rounded text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+								id="searchInput"
+							/>
+							<i
+								class="fas fa-search absolute right-3 top-2 text-gray-400"
+							></i>
+							<div
+								id="searchResults"
+								class="absolute w-full bg-gray-800 mt-1 rounded-md shadow-lg hidden z-50"
+							></div>
 						</div>
 					</div>
 				</div>
+			</nav>
+
+			<div class="flex layout-container">
+				<aside class="sidebar w-64 bg-gray-800 h-screen p-4">
+					<div class="space-y-4">
+						<details class="space-y-2">
+							<summary
+								class="text-sm uppercase tracking-wider text-gray-400 px-2 cursor-pointer hover:text-gray-300"
+							>
+								<i class="fa-solid fa-book"></i>
+								Campo Eléctrico
+							</summary>
+							<div class="space-y-1 pl-4">
+								{{range .Campo}}
+								<a
+									class="w-full text-left px-3 py-2 rounded hover:bg-gray-700 text-sm truncate block"
+									href="{{.Url}}"
+								>
+									<i class="fas fa-file-alt mr-2"></i>
+									{{.Title}}
+								</a>
+								{{end}}
+							</div>
+						</details>
+
+						<details class="space-y-2">
+							<summary
+								class="text-sm uppercase tracking-wider text-gray-400 px-2 cursor-pointer hover:text-gray-300"
+							>
+								<i class="fa-solid fa-book"></i>
+								Segundo Semestre
+							</summary>
+							<div class="space-y-1 pl-4">
+								{{range .Potencial}}
+								<a
+									class="w-full text-left px-3 py-2 rounded hover:bg-gray-700 text-sm truncate block"
+									href="{{.Url}}"
+								>
+									<i class="fas fa-file-alt mr-2"></i>
+									{{.Title}}
+								</a>
+								{{end}}
+							</div>
+						</details>
+
+						<div class="space-y-1">
+							<button
+								data-route="material"
+								class="w-full text-left px-3 py-2 rounded hover:bg-gray-700 text-sm"
+							>
+								<i class="fas fa-book-open mr-2"></i> Material
+								de apoyo
+							</button>
+							<button
+								data-route="questions"
+								class="w-full text-left px-3 py-2 rounded hover:bg-gray-700 text-sm"
+							>
+								<i class="fas fa-users mr-2"></i> Preguntas de
+								alumnos
+							</button>
+						</div>
+					</div>
+				</aside>
+
+				<main class="main-content flex-1 md:p-10 p-2" id="main-content" style="margin:auto; display: block;">
+					<iframe
+						src="{{.Contenido}}"
+						frameborder="0"
+						class="w-full h-[87dvh] rounded-2xl"
+					></iframe>
+				</main>
 			</div>
-		</nav>
-
-		<div class="flex">
-			<aside class="w-64 bg-gray-800 h-screen p-4">
-				<div class="space-y-4">
-					<details class="space-y-2">
-						<summary
-							class="text-sm uppercase tracking-wider text-gray-400 px-2 cursor-pointer hover:text-gray-300">
-							<i class="fa-solid fa-book"></i>
-							Campo Eléctrico
-						</summary>
-						<div class="space-y-1 pl-4">
-							{{range .Campo}}
-							<a class="w-full text-left px-3 py-2 rounded hover:bg-gray-700 text-sm truncate block" href="{{.Url}}">
-								<i class="fas fa-file-alt mr-2"></i> {{.Title}}
-							</a>
-							{{end}}
-						</div>
-					</details>
-
-					<details class="space-y-2">
-						<summary
-							class="text-sm uppercase tracking-wider text-gray-400 px-2 cursor-pointer hover:text-gray-300">
-							<i class="fa-solid fa-book"></i>
-							Segundo Semestre
-						</summary>
-						<div class="space-y-1 pl-4">
-							{{range .Potencial}}
-							<a class="w-full text-left px-3 py-2 rounded hover:bg-gray-700 text-sm truncate block" href="{{.Url}}">
-								<i class="fas fa-file-alt mr-2"></i> {{.Title}}
-							</a>
-							{{end}}
-						</div>
-					</details>
-
-					<div class="space-y-1">
-						<button data-route="material"
-							class="w-full text-left px-3 py-2 rounded hover:bg-gray-700 text-sm">
-							<i class="fas fa-book-open mr-2"></i> Material de apoyo
-						</button>
-						<button data-route="questions"
-							class="w-full text-left px-3 py-2 rounded hover:bg-gray-700 text-sm">
-							<i class="fas fa-users mr-2"></i> Preguntas de alumnos
-						</button>
-					</div>
-				</div>
-			</aside>
-
-			<main class="flex-1 w-full" id="main-content">
-				<iframe src="{{.Contenido}}" frameborder="0" class="w-full h-full rounded-2xl"></iframe>
-			</main>
 		</div>
-	</div>
 
-	<script src="../static/js/global.js"></script>
-	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-			const searchInput = document.getElementById('searchInput');
-			const searchResults = document.getElementById('searchResults');
-			const iframe = document.querySelector('iframe');
-			let timeoutId;
+		<script src="../static/js/global.js"></script>
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				const searchInput = document.getElementById("searchInput");
+				const searchResults = document.getElementById("searchResults");
+				const iframe = document.querySelector("iframe");
+				const sidebar = document.querySelector(".sidebar");
+				const toggleButton = document.querySelector(".toggle-sidebar");
+				let timeoutId;
 
-			function loadResult(path) {
-				iframe.src = '/' + path;
-				searchResults.classList.add('hidden');
-				searchInput.value = '';
-			}
+				// Toggle sidebar en móviles
+				toggleButton.addEventListener("click", () => {
+					sidebar.classList.toggle("hidden");
+				});
 
-			function createResultElement(result) {
-				const div = document.createElement('div');
-				div.className = 'p-3 hover:bg-gray-700 cursor-pointer text-sm';
-				div.innerHTML = `
-	                    <div class="font-medium">${result.title}</div>
-	                    <div class="text-gray-400 text-xs mt-1">${result.fragment}</div>
-	                `;
-				div.addEventListener('click', () => loadResult(result.path));
-				return div;
-			}
+				// Cerrar sidebar al hacer click en un enlace (móvil)
+				sidebar.querySelectorAll("a, button").forEach((element) => {
+					element.addEventListener("click", () => {
+						if (window.innerWidth <= 768) {
+							sidebar.classList.add("hidden");
+						}
+					});
+				});
 
-			async function performSearch(query) {
-				try {
-					const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
-					if (!response.ok) {
-						throw new Error(`HTTP error! status: ${response.status}`);
+				// Cerrar sidebar al hacer click fuera (móvil)
+				document.addEventListener("click", (e) => {
+					if (
+						window.innerWidth <= 768 &&
+						!sidebar.contains(e.target) &&
+						!toggleButton.contains(e.target)
+					) {
+						sidebar.classList.add("hidden");
 					}
-					const results = await response.json();
+				});
 
-					// Limpiar resultados anteriores
-					searchResults.innerHTML = '';
+				function loadResult(path) {
+					iframe.src = "/" + path;
+					searchResults.classList.add("hidden");
+					searchInput.value = "";
+				}
 
-					if (results.length > 0) {
-						results.forEach(result => {
-							searchResults.appendChild(createResultElement(result));
-						});
-						searchResults.classList.remove('hidden');
+				function createResultElement(result) {
+					const div = document.createElement("div");
+					div.className =
+						"p-3 hover:bg-gray-700 cursor-pointer text-sm";
+					div.innerHTML = `
+                    <div class="font-medium">${result.title}</div>
+                    <div class="text-gray-400 text-xs mt-1">${result.fragment}</div>
+                `;
+					div.addEventListener("click", () =>
+						loadResult(result.path)
+					);
+					return div;
+				}
+
+				async function performSearch(query) {
+					try {
+						const response = await fetch(
+							`/api/search?q=${encodeURIComponent(query)}`
+						);
+						if (!response.ok) {
+							throw new Error(
+								`HTTP error! status: ${response.status}`
+							);
+						}
+						const results = await response.json();
+
+						searchResults.innerHTML = "";
+
+						if (results.length > 0) {
+							results.forEach((result) => {
+								searchResults.appendChild(
+									createResultElement(result)
+								);
+							});
+							searchResults.classList.remove("hidden");
+						} else {
+							searchResults.innerHTML =
+								'<div class="p-3 text-gray-400 text-sm">No se encontraron resultados</div>';
+							searchResults.classList.remove("hidden");
+						}
+					} catch (error) {
+						console.error("Error en la búsqueda:", error);
+						searchResults.innerHTML =
+							'<div class="p-3 text-red-400 text-sm">Error al realizar la búsqueda</div>';
+						searchResults.classList.remove("hidden");
+					}
+				}
+
+				searchInput.addEventListener("input", function (e) {
+					clearTimeout(timeoutId);
+					const query = e.target.value.trim();
+
+					if (query.length >= 3) {
+						timeoutId = setTimeout(() => performSearch(query), 300);
 					} else {
-						searchResults.innerHTML = '<div class="p-3 text-gray-400 text-sm">No se encontraron resultados</div>';
-						searchResults.classList.remove('hidden');
+						searchResults.classList.add("hidden");
 					}
-				} catch (error) {
-					console.error('Error en la búsqueda:', error);
-					searchResults.innerHTML = '<div class="p-3 text-red-400 text-sm">Error al realizar la búsqueda</div>';
-					searchResults.classList.remove('hidden');
-				}
-			}
+				});
 
-			searchInput.addEventListener('input', function (e) {
-				clearTimeout(timeoutId);
-				const query = e.target.value.trim();
+				document.addEventListener("click", function (e) {
+					if (!searchInput.contains(e.target)) {
+						searchResults.classList.add("hidden");
+					}
+				});
 
-				if (query.length >= 3) {
-					timeoutId = setTimeout(() => performSearch(query), 300);
-				} else {
-					searchResults.classList.add('hidden');
-				}
+				document.addEventListener("keydown", function (e) {
+					if (e.key === "Escape") {
+						searchResults.classList.add("hidden");
+					}
+				});
 			});
-
-			document.addEventListener('click', function (e) {
-				if (!searchInput.contains(e.target)) {
-					searchResults.classList.add('hidden');
-				}
-			});
-
-			document.addEventListener('keydown', function (e) {
-				if (e.key === 'Escape') {
-					searchResults.classList.add('hidden');
-				}
-			});
-		});
-	</script>
-</body>
-
+		</script>
+	</body>
 </html>

@@ -179,6 +179,11 @@ body {
   color: #181b21;
 }
 
+.nota {
+	display: grid;
+	place-content: center;
+}
+
 @media (max-width: 768px) {
   .footer {
     padding: 16px 24px;

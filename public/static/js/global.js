@@ -223,5 +223,5 @@ function moveToButton (element, parent) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  moveToButton(footer, body)
+//   moveToButton(footer, body)
 })
