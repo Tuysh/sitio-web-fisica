@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distribuciones de Carga Segunda Parte</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body style="text-align: justify;" class="bg-gray-800 text-white min-h-screen nota">
+    <div class="p-4 sm:p-6 lg:p-8 max-w-4xl mx-auto">
+        <span class="block text-blue-400 text-xl sm:text-2xl font-bold">
+            Superficialmente
+        </span>
+        <span class="block text-purple-400 text-lg sm:text-lg font-bold">
+            Ahora, consideremos un disco de radio R uniformemente cargado.
+        </span>
+        <div class="bg-gray-700 rounded-lg p-8 flex items-center justify-center mt-4">
+            <img src="images/CE_6/1.svg" alt="figura1" class="max-w-full h-auto rounded-md">
+        </div>
+        <p class="text-sm sm:text-base mt-2 sm:mt-4">
+            Aprovechando que tenemos la distribución lineal de la carga del anillo, podemos usarla como diferencial de
+            carga del disco.
+            <span class="text-blue-400">Así: \(dQ = q\)</span><br>Entonces:
+            \[
+            \|\vec{dE}\| = \frac{qz}{4\pi \varepsilon_0 \left(r^2 + z^2\right)^{3/2}}
+            \]
+            \[
+            \|\vec{dE}\| = \frac{dQz}{4\pi \varepsilon_0 \left(r^2 + z^2\right)^{3/2}}
+            \]
+            Usando la densidad de carga superficial:
+            \[
+            \frac{dQ}{dA}, \quad dQ = \sigma \, dA
+            \]
+            \[
+            \|\vec{dE}\| = \frac{z \sigma \, dA}{4\pi \varepsilon_0 \left(r^2 + z^2\right)^{3/2}}
+            \]
+            \[
+            \|\vec{E}\| = \int_0^R \frac{z \sigma \, dA}{4\pi \varepsilon_0 \left(r^2 + z^2\right)^{3/2}}
+            \]
+            \[
+            dA = 2\pi r \, dr
+            \]
+            \[
+            \|\vec{E}\| = \int_0^R \frac{z \sigma 2\pi r \, dr}{4\pi \varepsilon_0 \left(r^2 + z^2\right)^{3/2}}
+            \]
+            Resolviendo por cambio de variable:
+            \[
+            u = r^2 + z^2
+            \]
+            \[
+            du = 2rdr
+            \]
+            \[
+            \|\vec{E}\| = \int_0^R \frac{z \sigma 2\pi r \left(\frac{du}{2r}\right)}{4\pi \varepsilon_0 u^{3/2}}
+            \]
+            \[
+            \|\vec{E}\| = \int_0^R \frac{z \sigma \pi \, du}{4\pi \varepsilon_0 u^{3/2}}
+            \]
+            \[
+            \|\vec{E}\| = \frac{z \sigma \pi}{4\pi \varepsilon_0} \left[ -\frac{u^{-1/2}}{1/2} \right]_0^R
+            \]
+            \[
+            \|\vec{E}\| = \frac{-z \sigma \pi}{2\pi \varepsilon_0} \left[ \left(r^2 + z^2 \right)^{-1/2} \right]_0^R
+            \]
+            \[
+            \|\vec{E}\| = \frac{-z \sigma \pi}{2\pi \varepsilon_0} \left\{ \left(R^2 + z^2 \right)^{-1/2} - \left(0 +
+            z^2 \right)^{-1/2} \right\}
+            \]
+            \[
+            \|\vec{E}\| = \frac{z \sigma \pi}{2\pi \varepsilon_0} \left\{ \left(z^2 \right)^{-1/2} - \left(R^2 + z^2
+            \right)^{-1/2} \right\}
+            \]
+            <span class="text-purple-400">
+                \[
+                \|\vec{E}\| = \frac{z \sigma \pi}{2\pi \varepsilon_0} \left\{ \frac{1}{z} - \frac{1}{\left(R^2 + z^2
+                \right)^{1/2}} \right\} \quad \text{resultado válido.}
+                \]
+            </span>
+            \[
+            \|\vec{E}\| = \frac{\sigma}{2 \varepsilon_0} \left\{ \frac{z}{z} - \frac{z}{\left(R^2 + z^2 \right)^{1/2}}
+            \right\}
+            \]
+            <span class="text-purple-400">
+                \[
+                \|\vec{E}\| = \frac{\sigma}{2 \varepsilon_0} \left\{ 1 - \frac{z}{\left(R^2 + z^2 \right)^{1/2}}
+                \right\} \quad \text{resultado válido.}
+                \]
+            </span>
+            Si multiplicamos numerador y denominador por \(\pi R^2\):
+            \[
+            \|\vec{E}\| = \frac{\pi R^2 \sigma}{2 \pi R^2 \varepsilon_0} \left\{ 1 - \frac{z}{\left(R^2 + z^2
+            \right)^{1/2}} \right\}
+            \]
+        <div class="bg-gray-700 rounded-lg p-4 text-purple-400">
+            <p class="text-lg font-semibold mb-2"> \[\|\vec{E}\| = \frac{Q}{2 \pi R^2 \varepsilon_0} \left\{ 1 -
+                \frac{z}{\left( R^2 + z^2 \right)^{1/2}} \right\} \] </p>
+            <p class="text-xs mt-4 ">Resultado del libro.</p>
+        </div>
+        <span class="block text-purple-400 text-lg sm:text-lg font-bold">
+            Ahora, consideremos un disco de radio \(R\) uniformemente cargado, donde \(R>> Z\).
+            (lámina infinita)
+        </span>
+        De uno de los resultados obtenidos:
+        \[
+        \|\vec{E}\| = \frac{\sigma}{2 \varepsilon_0} \left\{ 1 - \frac{z}{\left( R^2 + z^2 \right)^{1/2}} \right\}
+        \]
+        Nos queda:
+        <div class="bg-gray-700 rounded-lg p-2 text-purple-400">
+            <p class="text-lg font-semibold">
+                \[
+                \|\vec{E}\| = \frac{\sigma}{2 \varepsilon_0}
+                \]                
+            </p>
+        </div> 
+        </p>
+    </div>
+    <script src="../../static/js/global.js"></script>
+    <script src="../../static/js/notas.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+
+</html>

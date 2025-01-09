@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distribuciones de Carga Primera Parte</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body style="text-align: justify;" class="bg-gray-800 text-white min-h-screen nota">
+    <div class="p-4 sm:p-6 lg:p-8 max-w-4xl mx-auto">
+        <span class="block text-blue-600 text-xl sm:text-2xl font-bold">
+            EL CAMPO ELÉCTRICO DE LAS DISTRIBUCIONES DE CARGA CONTINUA
+        </span>
+        <p class="text-sm sm:text-base mt-2 sm:mt-4">
+            Hasta este momento hemos revisado el campo eléctrico generado por una o varias cargas puntuales. Ahora,
+            consideremos distribuciones o arreglos de carga de una gran cantidad de partículas cargadas separadas por
+            una corta distancia entre sí. Esos arreglos serán revisados aún por la ley de Coulomb, en el siguiente
+            orden:
+        <ul class="list-disc pl-8 sm:pl-10 font-bold">
+            <li>Linealmente.</li>
+            <li>Superficialmente.</li>
+            <li>Volumétricamente <span class="font-normal">(usaremos la ley de Gauss)</span>.</li>
+        </ul>
+        Estas distribuciones o arreglos se llaman continuas (no discretas). Entendiendo que estas distribuciones
+        incluyen una enorme cantidad de cargas puntuales. Ahora, la forma de estudiar estos arreglos no será
+        considerando los mismos criterios usados en cargas puntuales <span class="text-red-600">(no estudiaremos carga
+            por carga, son millones de
+            cargas)</span>. En primera instancia, el término o concepto <span class="font-bold">continuo</span> es que
+        todo ese arreglo tendrá las mismas
+        características en todos y cada uno de los segmentos, secciones o elementos que consideremos de ese arreglo.
+        Entonces por esta característica podemos hacer uso del cálculo infinitesimal. Para usar el cálculo
+        infinitesimal, usaremos un nuevo concepto: <span class="font-bold">DENSIDAD DE CARGA</span>. El concepto de
+        densidad lo hemos usado
+        como: \(\delta = \frac{masa}{Volumen}\), entonces para nuestro caso será:
+        </p>
+        <div class="bg-gray-700 rounded-lg p-8 flex items-center justify-center mt-4">
+            <table class="min-w-full table-auto text-white">
+                <thead>
+                    <tr>
+                        <th class="px-4 py-2 border-b">NOMBRE</th>
+                        <th class="px-4 py-2 border-b">SÍMBOLO</th>
+                        <th class="px-4 py-2 border-b">UNIDAD</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="px-4 py-2 border-b">Carga</td>
+                        <td class="px-4 py-2 border-b">\(q\)</td>
+                        <td class="px-4 py-2 border-b">\(C\)</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border-b">Densidad lineal de carga</td>
+                        <td class="px-4 py-2 border-b">\(\lambda(lambda)\)</td>
+                        <td class="px-4 py-2 border-b">\(C/m\)</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border-b">Densidad superficial de carga</td>
+                        <td class="px-4 py-2 border-b">\(\sigma(sigma)\)</td>
+                        <td class="px-4 py-2 border-b">\(C/m^2\)</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border-b">Densidad de carga por volumen</td>
+                        <td class="px-4 py-2 border-b">\(\rho(rho)\)</td>
+                        <td class="px-4 py-2 border-b">\(C/m^3\)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="text-sm sm:text-base mt-2 sm:mt-4">
+            <span class=" text-sm sm:text-base text-purple-400">
+                También, podemos considerar a una agrupación de gran cantidad de cargas elementales como una
+                distribución continua de carga, en el entendido de que sabemos que la carga está cuantizada (recordemos
+                que, una cantidad está cuantizada cuando tiene una cantidad mínima como unidad, es decir no puede ser
+                dividida indefinidamente). Para variados casos los elementos de carga que consideraremos para calcular
+                su \(E\) serán propuestos como cargas puntuales. Así, si sabemos que:
+                \[
+                E = \frac{1}{4\pi\varepsilon_0}\left(\frac{q}{r^2}\right) \Longrightarrow dE =
+                \frac{1}{4\pi\varepsilon_0}\left(\frac{dq}{r^2}\right)
+                \]
+                Los materiales que analizaremos serán aislantes, que son cuerpos donde permanece fija la carga
+                eléctrica.
+            </span>
+        </p>
+        <span class="block text-blue-600 text-xl sm:text-2xl font-bold">
+            Linealmente.
+        </span>
+        <p class="text-sm sm:text-base mt-2 sm:mt-4">
+            <span class="text-sm sm:text-base text-purple-400 font-bold">
+                Primero, consideremos una línea infinita de carga.
+            </span> De acuerdo a la figura de abajo, tenemos que:
+            <br>
+            <span class="text-sm sm:text-base text-red-600">
+                Es conveniente que ellos propongan su modelo matemático e irlo afinando, antes de escribir lo siguiente.
+                Lo podemos resolver de varias formas, empecemos con ésta (si es que los alumnos no han propuesto algo).
+                😢
+            </span>
+            <span class="block text-red-600 text-xl sm:text-2xl font-bold">
+                FORMA 1:
+            </span>
+            \[
+            d\vec{E} = \frac{1}{4\pi\varepsilon_0}\left(\frac{dq}{r^2}\right) \left(\cos{\theta} \ \mathbf{\hat{\jmath}}
+            \ + \ \sin{\theta} \ \mathbf{\hat{k}} \right)
+            \]
+            <span class="text-red-600">
+                Pero como comentamos no vamos a trabajar con todas y cada una de las cargas. Usaremos otro concepto: la
+                densidad de carga.<span class="text-white">\(\lambda = \frac{dq}{dz}\)
+                    \[
+                    d\vec{E} = \frac{1}{4\pi\varepsilon_0}\left(\frac{\lambda dz}{r^2}\right) \left(\cos{\theta} \
+                    \mathbf{\hat{\jmath}} \ + \ \sin{\theta} \ \mathbf{\hat{k}} \right)
+                    \]
+                    \[
+                    d\vec{E} = \frac{1}{4\pi\varepsilon_0}\left(\frac{\lambda dz}{z^2 + y^2}\right) \left(\cos{\theta} \
+                    \mathbf{\hat{\jmath}} \ + \ \sin{\theta} \ \mathbf{\hat{k}} \right)
+                    \]
+                    \[
+                    \int{d\vec{E}} = \frac{1}{4\pi\varepsilon_0}\left(\frac{\lambda dz}{z^2 + y^2}\right)
+                    \left(\cos{\theta} \ \mathbf{\hat{\jmath}} \ + \ \sin{\theta} \ \mathbf{\hat{k}} \right)
+                    \]
+                </span>
+                Tenemos dos o tres o cuántas variables; ¿cuáles son?, Es decir, si vamos variando ϴ qué varía también.
+            </span>
+        </p>
+        <div class="bg-gray-700 rounded-lg p-8 flex items-center justify-center mt-4">
+            <img src="images/CE_4/1.svg" alt="figura1" class="max-w-full h-auto rounded-md">
+        </div>
+        <p class="text-sm sm:text-base mt-2 sm:mt-4">
+        <ul class="pl-8 sm:pl-10">
+            <li>Nada más varía “\(z\)”. ¿Con cuál variable trabajamos con \(z\) o con \(\theta\)?</li>
+            <li>Si trabajamos con “\(z\)” nuestros límites de integración serían de \(-\infty\) a \(+\infty\)</li>
+            <li>Si trabajamos con “\(\theta\)” nuestros límites de integración serían de 270° a 90°</li>
+            <li>es decir:</li>
+        </ul>
+        \[
+        si: \ z \longrightarrow -\infty , \ \ \theta \longrightarrow 270°
+        \]
+        \[
+        si: \ z \longrightarrow +\infty , \ \ \theta \longrightarrow 90°
+        \]
+        <span class="block text-red-600 text-sm sm:text-base font-bold">
+            IMPORTANTE EN CÁLCULO DIFERENCIAL: ¿CÓMO RELACIONAMOS VARIABLES?, SI ES QUE SE PUEDE.
+        </span>
+        En este caso sí podemos relacionar \(z\) con \(\theta\) con un argumento trigonométrico:
+        </p>
+        <div style="border-radius: 2svh;" class="bg-gray-700 p-4 flex items-center">
+            <img src="images/CE_4/2.svg" alt="figura2" style="width: 45svh; height: 45svh; padding-left: 1rem;"
+                class="mr-2">
+            <div class="flex flex-col justify-center">
+                <p class="text-sm sm:text-base mt-2 sm:mt-4">
+                <ul class="pl-4 sm:pl-4">
+                    <li>Como podemos intuir, tenemos 3 opciones:</li>
+                </ul>
+                <ul class="pl-8 sm:pl-12 list-decimal">
+                    <li>\(\tan{\theta} = \frac{y}{z}; \ z = y\tan{\theta}\)<br> \(dz = y\sec^2{\theta}d\theta
+                        \)</li>
+                    <li>\(\sin{\theta} = \frac{z}{\sqrt{z^2 + y^2}}\)</li>
+                    <li>\(\cos{\theta} = \frac{y}{\sqrt{z^2 + y^2}}\)</li>
+                </ul>
+                </p>
+            </div>
+        </div>
+        <p class="text-sm sm:text-base mt-2 sm:mt-4">
+            Consideremos el primer cambio:
+            \[
+            \vec{E} =
+            \frac{\lambda}{4\pi\varepsilon_0}\int{\left(\frac{y\sec^2{\theta}d\theta}{y^2\tan^2{\theta}+y^2}\right)}\left(\cos{\theta}
+            \
+            \mathbf{\hat{\jmath}} \ + \ \sin{\theta} \ \mathbf{\hat{k}} \right)
+            \]
+            \[
+            \vec{E} =
+            \frac{\lambda}{4\pi\varepsilon_0}\int{\left(\frac{y\sec^2{\theta}d\theta}{y^2\left(\tan^2{\theta}+1\right)}\right)}\left(\cos{\theta}
+            \
+            \mathbf{\hat{\jmath}} \ + \ \sin{\theta} \ \mathbf{\hat{k}} \right)
+            \]
+            \[
+            \vec{E} = \frac{\lambda}{4\pi\varepsilon_0}\int{\left(\frac{d\theta}{y}\right)}\left(\cos{\theta} \
+            \mathbf{\hat{\jmath}} \ + \ \sin{\theta} \ \mathbf{\hat{k}} \right)
+            \]
+            Los límites de integración serán desde 270° hasta 90°.
+            \[
+            \vec{E} = \frac{\lambda}{4\pi\varepsilon_0y}\int_{270^\circ}^{90^\circ}{\left(\cos{\theta} \
+            \mathbf{\hat{\jmath}} \ + \ \sin{\theta} \ \mathbf{\hat{k}} \right)d\theta}
+            \]
+            \[
+            \vec{E} = \frac{\lambda}{4\pi\varepsilon_0y}\left\{ \left[ \sin{\theta} \
+            \mathbf{\hat{\jmath}} \right]_{270^\circ}^{90^\circ} + \left[ -\cos{\theta} \
+            \mathbf{\hat{k}} \right]_{270^\circ}^{90^\circ} \right\}
+            \]
+            \[
+            \vec{E} = \frac{\lambda}{4\pi\varepsilon_0y}\left\{ \left( \sin{90^\circ} - \sin{270^\circ}
+            \right)\mathbf{\hat{\jmath}} + \left( -\cos{90^\circ} + \cos{270^\circ}\right)
+            \right\}
+            \]
+            \[
+            \vec{E} = \frac{\lambda}{4\pi\varepsilon_0y}\left\{1+1\right\}\mathbf{\hat{\jmath}}
+            \]
+        <div class="bg-gray-700 rounded-lg p-2 flex items-center justify-center mt-4">
+            <span style="font-size: large;" class="font-bold">
+                \[
+                \vec{E} = \frac{\lambda}{2\pi\varepsilon_0y}\mathbf{\hat{\jmath}}
+                \]
+            </span>
+        </div>
+        Otra forma de resolver la integral es por sustitución trigonométrica. El razonamiento físico es el mismo pero la
+        operatividad matemática no.
+        <span class="block text-red-600 text-xl sm:text-2xl font-bold">
+            FORMA 2:
+        </span>
+        \[
+        \vec{E} = \frac{\lambda}{4 \pi \varepsilon_0}
+        \left[
+        \int \left(\frac{y}{z^2 + y^2}\right) \left(\frac{dz}{\sqrt{z^2 + y^2}}\right) \hat{\jmath}
+        +
+        \int \left(\frac{z}{z^2 + y^2}\right) \left(\frac{dz}{\sqrt{z^2 + y^2}}\right) \hat{k}
+        \right]
+        \]
+        \[
+        \vec{E} = \frac{\lambda}{4 \pi \varepsilon_0}
+        \left[
+        \int \left(\frac{y \, dz}{(z^2 + y^2)^{3/2}}\right) \hat{\jmath}
+        +
+        \int \left(\frac{z \, dz}{(z^2 + y^2)^{3/2}}\right) \hat{k}
+        \right]
+        \]
+        <div style="border-radius: 2svh;" class="bg-gray-700 p-4 flex items-center">
+            <img src="images/CE_4/2.svg" alt="figura2" style="width: 45svh; height: 45svh; padding-left: 1rem;"
+                class="mr-2">
+            <div class="flex flex-col justify-center">
+                <p class="text-sm sm:text-base mt-2 sm:mt-4">
+                <ul class="pl-8 sm:pl-12 list-decimal">
+                    <li>\(\tan{\theta} = \frac{y}{z}; \ z = y\tan{\theta}\)<br> \(dz = y\sec^2{\theta}d\theta
+                        \)</li>
+                    <li>\(\sec{\theta} = \frac{\sqrt{z^2 + y^2}}{y}\)</li>
+                </ul>
+                </p>
+            </div>
+        </div>
+        Haciendo los cambios convenientes, tenemos:
+        \[
+        \vec{E} = \frac{\lambda}{4 \pi \varepsilon_0}
+        \left[
+        \int \left(\frac{y \, dz}{y^3 \sec^3\theta}\right) \hat{\jmath}
+        +
+        \int \left(\frac{z \, dz}{y^3 \sec^3\theta}\right) \hat{k}
+        \right]
+        \]
+        \[
+        \vec{E} = \frac{\lambda}{4 \pi \varepsilon_0}
+        \left[
+        \int \left(\frac{y}{y^3 \sec^3\theta}\right) \left(y \sec^2\theta \, d\theta\right) \hat{\jmath}
+        +
+        \int \left(\frac{z}{y^3 \sec^3\theta}\right) \left(y \sec^2\theta \, d\theta\right) \hat{k}
+        \right]
+        \]
+        \[
+        \vec{E} = \frac{\lambda}{4 \pi \varepsilon_0}
+        \left[
+        \int \left(\frac{d\theta}{y \sec\theta}\right) \hat{\jmath}
+        +
+        \int \left(\frac{\tan\theta \, d\theta}{y \sec\theta}\right) \hat{k}
+        \right]
+        \]
+        \[
+        \vec{E} = \frac{\lambda}{4 \pi \varepsilon_0}
+        \left[
+        \int \left(\frac{\cos\theta \, d\theta}{y}\right) \hat{\jmath}
+        +
+        \int \left(\frac{\tan\theta \, d\theta}{y \sec\theta}\right) \hat{k}
+        \right]
+
+        \]
+        Factorizamos “\(y\)” y simplificamos la función de la segunda integral:
+        \[
+        \vec{E} = \frac{\lambda}{4 y \pi \varepsilon_0}
+        \left[
+        \int \cos\theta \, d\theta \, \hat{\jmath}
+        +
+        \int \sin\theta \, d\theta \, \hat{k}
+        \right]
+        \]
+        Los límites de integración serán los mismos:
+        \[
+        si: \ z \longrightarrow -\infty , \ \ \theta \longrightarrow 270°
+        \]
+        \[
+        si: \ z \longrightarrow +\infty , \ \ \theta \longrightarrow 90°
+        \]
+        \[
+        \vec{E} = \frac{\lambda}{4 y \pi \varepsilon_0}
+        \left[
+        \int_{270^\circ}^{90^\circ} \cos\theta \, d\theta \, \hat{\jmath}
+        +
+        \int_{270^\circ}^{90^\circ} \sin\theta \, d\theta \, \hat{k}
+        \right]
+        \]
+        <span class="text-red-600">De este paso en adelante se repite la misma historia de la forma anterior (<span
+                class="font-bold">FORMA 1</span>).</span>
+        <span class="block text-red-600 text-xl sm:text-2xl font-bold">
+            FORMA 3:
+        </span>
+        ¿Sabemos que es lo que pasará?<br>
+        Sí, las componentes verticales se cancelarán y el campo eléctrico apuntará hacia la derecha. Entonces nuestra
+        propuesta matemática será:
+        \[
+        \left\| d\vec{E} \right\| = \frac{1}{4 \pi \varepsilon_0} \left( \frac{dq}{r^2} \right) \cos\theta
+        \]
+        \[
+        \left\| d\vec{E} \right\| = \frac{1}{4 \pi \varepsilon_0} \left( \frac{\lambda \, dz}{z^2 + y^2} \right) \left(
+        \frac{y}{\sqrt{z^2 + y^2}} \right)
+        \]
+        \[
+        \left\| d\vec{E} \right\| = \frac{\lambda y}{4 \pi \varepsilon_0} \left( \frac{dz}{z^2 + y^2} \right) \left(
+        \frac{1}{\sqrt{z^2 + y^2}} \right)
+        \]
+        \[
+        \left\| d\vec{E} \right\| = \frac{\lambda y}{4 \pi \varepsilon_0} \left( \frac{dz}{\left(z^2 + y^2\right)^{3/2}}
+        \right)
+        \]
+        Para establecer los límites de integración podemos dividir la línea de carga en dos y multiplicar nuestra
+        integral por dos o no. Primeramente, hagamos dividiendo nuestra línea de carga en dos.
+        \[
+        \left\| \frac{\vec{E}}{2} \right\| = \frac{\lambda y}{4 \pi \varepsilon_0} \int_0^{+\infty} \frac{dz}{\left(z^2
+        + y^2\right)^{3/2}}
+        \]
+        Resolvemos la integral por sustitución trigonométrica:
+        <div style="border-radius: 2svh;" class="bg-gray-700 p-4 flex items-center">
+            <img src="images/CE_4/2.svg" alt="figura2" style="width: 45svh; height: 45svh; padding-left: 1rem;"
+                class="mr-2">
+            <div class="flex flex-col justify-center">
+                <p class="text-sm sm:text-base mt-2 sm:mt-4">
+                <ul class="pl-4 sm:pl-4">
+                    <li>Como podemos intuir, tenemos 3 opciones:</li>
+                </ul>
+                <ul class="pl-8 sm:pl-12 list-decimal">
+                    <li>\(\tan{\theta} = \frac{y}{z}; \ z = y\tan{\theta}\)<br> \(dz = y\sec^2{\theta}d\theta
+                        \)</li>
+                    <li>\(\sin{\theta} = \frac{z}{\sqrt{z^2 + y^2}}\)</li>
+                    <li>\(\cos{\theta} = \frac{y}{\sqrt{z^2 + y^2}}\)</li>
+                </ul>
+                </p>
+            </div>
+        </div>
+        \[
+        \left\| \frac{\vec{E}}{2} \right\| = \frac{\lambda y}{4 \pi \varepsilon_0} \int_0^{+\infty} \frac{y \sec^2
+        \theta \, d\theta}{y^3 \sec^3 \theta}
+        \]
+        \[
+        \left\| \frac{\vec{E}}{2} \right\| = \frac{\lambda y^2}{4 y^3 \pi \varepsilon_0} \int_0^{+\infty}
+        \frac{d\theta}{\sec \theta}
+        \]
+        \[
+        \left\| \frac{\vec{E}}{2} \right\| = \frac{\lambda}{4 y \pi \varepsilon_0} \int_0^{+\infty} \cos \theta \,
+        d\theta
+        \]
+        \[
+        \left\| \frac{\vec{E}}{2} \right\| = \frac{\lambda}{4 y \pi \varepsilon_0} \left[ \sin \theta
+        \right]_0^{+\infty}
+        \]
+        \[
+        \left\| \frac{\vec{E}}{2} \right\| = \frac{\lambda}{4 y \pi \varepsilon_0} \left[ \frac{z}{\sqrt{z^2 + y^2}}
+        \right]_0^{+\infty}
+        \]
+        \[
+        \left\| \frac{\vec{E}}{2} \right\| = \frac{\lambda}{4 y \pi \varepsilon_0} \left\{ \frac{\infty}{\sqrt{\infty^2
+        + y^2}} - \frac{0}{\sqrt{0^2 + y^2}} \right\}
+        \]
+        <span class="text-red-600">
+            Para la indeterminación \(\infty/\infty\) podemos hacer algún artificio algebraico para eliminar dicha
+            indeterminación; esto lo vimos en cálculo diferencial (las indeterminaciones que podíamos “evitar” eran:
+            \(0/0\),\(\infty/\infty\) y \(\infty - \infty\) ).
+        </span>
+        \[
+        \left\| \frac{\vec{E}}{2} \right\| = \frac{\lambda}{4 y \pi \varepsilon_0} \left\{ \frac{\left( \frac{z}{z}
+        \right)}{\sqrt{\frac{z^2}{z^2} + \frac{y^2}{z^2}}} - 0 \right\}
+        \]
+        \[
+        \left\| \frac{\vec{E}}{2} \right\| = \frac{\lambda}{4 y \pi \varepsilon_0} \left\{ \frac{1}{\sqrt{1+0}} - 0 \right\}
+        \]
+        \[
+        \left\| \frac{\vec{E}}{2} \right\| = \frac{\lambda}{4 y \pi \varepsilon_0} \{ 1 \}
+        \]
+        \[
+        \left\| \vec{E} \right\| = \frac{2 \lambda}{4 y \pi \varepsilon_0}
+        \]
+        \[
+        
+        \]
+        <div class="bg-gray-700 rounded-lg p-2 flex items-center justify-center mt-4">
+            <span style="font-size: large;" class="font-bold">
+                \[
+                \left\| \vec{E} \right\| = \frac{\lambda}{2 y \pi \varepsilon_0}
+                \]
+            </span>
+        </div>
+        <span class="block text-red-600 text-xl sm:text-2xl font-bold">
+            FORMA 4:
+        </span>
+        ¿Sabemos que es lo que pasará?<br>
+        Sí, las componentes verticales se cancelarán y el campo eléctrico apuntará hacia la derecha. Entonces nuestra propuesta matemática será:
+        \[
+        \left\| d\vec{E} \right\| = \frac{1}{4 \pi \varepsilon_0} \left( \frac{dq}{r^2} \right) \cos \theta
+        \]
+        \[
+        \left\| d\vec{E} \right\| = \frac{1}{4 \pi \varepsilon_0} \left( \frac{\lambda dz}{z^2 + y^2} \right) \frac{y}{\sqrt{z^2 + y^2}}
+        \]
+        \[
+        \left\| d\vec{E} \right\| = \frac{\lambda y}{4 \pi \varepsilon_0} \left( \frac{dz}{z^2 + y^2} \right) \frac{1}{\sqrt{z^2 + y^2}}
+        \]
+        \[
+        \left\| d\vec{E} \right\| = \frac{\lambda y}{4 \pi \varepsilon_0} \left( \frac{dz}{\left( z^2 + y^2 \right)^{3/2}} \right)
+        \]
+        Ahora, los límites de integración serán desde \(-\infty\) hasta \(+\infty\).
+        \[
+        \left\| \vec{E} \right\| = \frac{\lambda y}{4 \pi \varepsilon_0} \int_{-\infty}^{+\infty} \frac{dz}{\left( z^2 + y^2 \right)^{3/2}}
+        \]
+        Resolvemos la integral por sustitución trigonométrica:
+        <div style="border-radius: 2svh;" class="bg-gray-700 p-4 flex items-center">
+            <img src="images/CE_4/2.svg" alt="figura2" style="width: 45svh; height: 45svh; padding-left: 1rem;"
+                class="mr-2">
+            <div class="flex flex-col justify-center">
+                <p class="text-sm sm:text-base mt-2 sm:mt-4">
+                <ul class="pl-4 sm:pl-4">
+                    <li>Como podemos intuir, tenemos 3 opciones:</li>
+                </ul>
+                <ul class="pl-8 sm:pl-12 list-decimal">
+                    <li>\(\tan{\theta} = \frac{y}{z}; \ z = y\tan{\theta}\)<br> \(dz = y\sec^2{\theta}d\theta
+                        \)</li>
+                    <li>\(\sin{\theta} = \frac{z}{\sqrt{z^2 + y^2}}\)</li>
+                    <li>\(\cos{\theta} = \frac{y}{\sqrt{z^2 + y^2}}\)</li>
+                </ul>
+                </p>
+            </div>
+        </div>
+        \[
+        \left\| \vec{E} \right\| = \frac{\lambda y}{4 \pi \varepsilon_0} \int_{-\infty}^{+\infty} \frac{y \sec^2 \theta \, d\theta}{y^3 \sec^3 \theta}
+        \]
+        \[
+        \left\| \vec{E} \right\| = \frac{\lambda y^2}{4 y^3 \pi \varepsilon_0} \int_{-\infty}^{+\infty} \frac{d\theta}{\sec \theta}
+        \]
+        \[
+        \left\| \vec{E} \right\| = \frac{\lambda}{4 y \pi \varepsilon_0} \int_{-\infty}^{+\infty} \cos \theta \, d\theta
+        \]
+        \[
+        \left\| \vec{E} \right\| = \frac{\lambda}{4 y \pi \varepsilon_0} \left[ \sin \theta \right]_{-\infty}^{+\infty}
+        \]
+        \[
+        \left\| \vec{E} \right\| = \frac{\lambda}{4 y \pi \varepsilon_0} \left[ \frac{z}{\sqrt{z^2 + y^2}} \right]_{-\infty}^{+\infty}
+        \]
+        \[
+        \left\| \vec{E} \right\| = \frac{\lambda}{4 y \pi \varepsilon_0} \left[ \frac{\infty}{\sqrt{\infty^2 + y^2}} - \frac{-\infty}{\sqrt{(-\infty)^2 + y^2}} \right]
+        \]
+        <span class="text-red-600">
+            Para la indeterminación \(\infty/\infty\) podemos hacer algún artificio algebraico para eliminar dicha
+            indeterminación; esto lo vimos en cálculo diferencial (las indeterminaciones que podíamos “evitar” eran:
+            \(0/0\),\(\infty/\infty\) y \(\infty - \infty\) ).
+        </span>
+        <div class="flex items-center justify-start space-x-4">
+            <!-- Expresión en LaTeX -->
+            <span class="text-white text-xl">
+              \(\left\| \vec{E} \right\| = \frac{\lambda}{4 y \pi \varepsilon_0} \left[ \frac{z}{z} \cdot \frac{1}{\sqrt{\frac{z^2}{z^2} + \frac{y^2}{z^2}}} - \frac{-z}{z} \cdot \frac{1}{\sqrt{\frac{z^2}{(-z)^2} + \frac{y^2}{(-z)^2}}} \right]\)
+            </span>
+          
+            <!-- Nota en el div con fondo diferente -->
+            <div class="bg-gray-700 text-white rounded-lg p-4 w-80">
+              <p class="text-orange-400 font-semibold mb-2">Nota:</p> <!-- Nota en otro color -->
+              <p class="text-lg font-semibold mb-2">Cuando x→-∞ son números negativos.</p>
+              <p class="text-lg font-semibold mb-2">Cuando x→∞ son números positivos.</p>
+              <p class="text-sm italic mb-4">Lógico lo anterior.</p>
+              <p class="text-xs mt-4">Nota del 23 septiembre del 2022.</p>
+            </div>
+        </div>
+        \[
+        \left\| \vec{E} \right\| = \frac{\lambda}{4 y \pi \varepsilon_0} \left\{ \frac{1}{\sqrt{1+0}} + \frac{1}{\sqrt{1+0}} \right\}
+        \]
+        \[
+        \left\| \vec{E} \right\| = \frac{\lambda}{4 y \pi \varepsilon_0} \{ 2 \}
+        \]
+        <div class="bg-gray-700 rounded-lg p-2 flex items-center justify-center mt-4">
+            <span style="font-size: large;" class="font-bold">
+                \[
+                \left\| \vec{E} \right\| = \frac{\lambda}{2 y \pi \varepsilon_0}
+                \]
+            </span>
+        </div>
+        Entonces para cualesquiera sistemas de referencia, es decir para cualquiera distancia “\(r\)”:
+        <div class="bg-gray-700 rounded-lg p-4 flex items-center justify-center mt-4">
+            <span class="sm:pl-10 text-sm sm:text-base text-purple-400 " style="font-size: large;">
+                \[
+                \left\| \vec{E} \right\| = \frac{\lambda}{2 r \pi \varepsilon_0}
+                \]
+            </span>
+        </div>
+        La idealización de problemas prácticos, donde tenemos líneas finitas de carga, nos sirve para simplificar nuestros resultados con una muy buena aproximación, siempre y cuando nuestra medición sea no muy cercana de los extremos de la línea finita de carga.
+        <br>
+        <span class="text-red-600">
+            <span class="font-bold">
+                Profesor: Ver notas, escritas a mano, sobre límites y selección de posición para el observador.
+            </span><br>
+            (Los recordatorios pronto en la página, se lo juramos)☺️.
+        </span>
+        </p>
+    </div>
+
+    <script src="../../static/js/global.js"></script>
+    <script src="../../static/js/notas.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+
+</html>

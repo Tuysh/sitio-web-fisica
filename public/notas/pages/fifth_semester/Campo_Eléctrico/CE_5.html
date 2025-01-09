@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distribuciones de Carga Segunda Parte</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body style="text-align: justify;" class="bg-gray-800 text-white min-h-screen nota">
+    <div class="p-4 sm:p-6 lg:p-8 max-w-4xl mx-auto">
+        <span class="block text-purple-400 text-xl sm:text-2xl font-bold">
+            Segundo, consideremos un anillo cargado uniformemente.
+        </span>
+        <div class="bg-gray-700 rounded-lg p-8 flex items-center justify-center mt-4">
+            <img src="images/CE_5/1.svg" alt="figura1" class="max-w-full h-auto rounded-md">
+        </div>
+        <p class="text-sm sm:text-base mt-2 sm:mt-4">
+            Primeramente, seleccionemos un diferencial de carga del anillo. <span class="text-red-600">La mejor opción
+                es en el lado izquierdo o
+                derecho para facilidad propia de la explicación (es como cuando seleccionábamos la posición de la
+                partícula
+                en el movimiento circular, esto fue dicho por un alumno del 5IV3, en la clase del 29 octubre del
+                2022).</span>
+            <br>
+            Habiendo seleccionado el diferencial de carga, el cual es uno de los elementos a considerar dentro del campo
+            eléctrico, ubicamos el punto donde queremos revisar los efectos eléctricos que produce dicho anillo (la
+            posición del punto es el otro elemento por considerar dentro del campo eléctrico). Para nuestro caso, el
+            punto \(P\) está a una distancia \(z\) del eje origen coordenado.
+            <br>
+            Ahora, el estudio para determinar el modelo matemático lo podemos realizar de dos formas:
+        <ul class="list-decimal pl-8 sm:pl-10">
+            <li>Si sabemos lo que sucederá, calculamos la magnitud del campo eléctrico.</li>
+            <li>Proponiendo el vector del campo eléctrico.</li>
+        </ul>
+        <span class="block text-purple-400 text-xl sm:text-2xl font-bold">
+            FORMA 1:
+        </span>
+        Sabemos que, por simetría las componentes sobre los ejes “\(X\)” y “\(Y\)” se cancelan, quedando solamente las
+        componentes sobre el eje “\(Z\)”. Entonces:
+        \[
+        \left\| d\vec{E} \right\| = \left\| d\vec{E}_z \right\|
+        \]
+        \[
+        \left\| d\vec{E} \right\| = \frac{1}{4 \pi \varepsilon_0} \frac{dq}{R^2} \cos \theta
+        \]
+        Como ya sabemos que vamos a usar distribuciones de carga continua entonces, usamos el concepto densidad de carga
+        lineal, para este caso:
+        \[
+        \lambda = \frac{dq}{dl}
+        \]
+        \[
+        \left\| d\vec{E} \right\| = \frac{1}{4 \pi \varepsilon_0} \frac{\lambda dl}{R^2} \cos \theta
+        \]
+        \[
+        \text{Además, } R^2 = r^2 + z^2 \text{ y } \cos \theta = \frac{z}{\sqrt{r^2 + z^2}}, \text{ entonces: }
+        \left\| d\vec{E} \right\| = \frac{1}{4 \pi \varepsilon_0} \frac{\lambda dl}{r^2 + z^2} \left( \frac{z}{\sqrt{r^2 +
+        z^2}} \right)
+        \]
+        \[
+        \left\| d\vec{E} \right\| = \frac{1}{4 \pi \varepsilon_0} \frac{z \lambda dl}{(r^2 + z^2)^{3/2}}
+        \]
+        \[
+        \left\| \vec{E} \right\| = \int_0^l \frac{1}{4 \pi \varepsilon_0} \frac{z \lambda dl}{(r^2 + z^2)^{3/2}}
+        \]
+        Observamos que la única variable es “\(l\)”, entonces:
+        \[
+        \left\| \vec{E} \right\| = \frac{z \lambda}{4 \pi \varepsilon_0 (r^2 + z^2)^{3/2}} \int_0^{2\pi r} dl
+        \]
+        \[
+        \left\| \vec{E} \right\| = \frac{z \lambda}{4 \pi \varepsilon_0 (r^2 + z^2)^{3/2}} \left[ l \right]_0^{2\pi r}
+        \]
+        \[
+        \left\| \vec{E} \right\| = \frac{z \lambda}{4 \pi \varepsilon_0 (r^2 + z^2)^{3/2}} \left[ 2\pi r - 0 \right]
+        \]
+        <span class="text-sm sm:text-base text-purple-400">
+            \[
+            \left\| \vec{E} \right\| = \frac{z \lambda}{4 \pi \varepsilon_0 (r^2 + z^2)^{3/2}} \left[ 2\pi r \right]
+            \]
+        </span>
+        Éste ya sería un resultado valido por tener en su expresión solamente datos y constantes.
+        pero: \(2\pi r \lambda = q\), entonces:
+        <div class="bg-gray-700 rounded-lg p-4 flex items-center justify-center mt-4">
+            <span class="sm:pl-10 text-sm sm:text-base text-purple-400">
+                \[
+                \left\| \vec{E} \right\| = \frac{zq}{4 \pi \varepsilon_0 (r^2 + z^2)^{3/2}}
+                \]
+            </span>
+        </div>
+        <span class="font-bold">
+            Realicemos algunas consideraciones particulares:
+        </span>
+        <ul class="list-decimal pl-8 sm:pl-10">
+            <li>si \(z>>r\) (el punto “\(P\)” está muy alejado del anillo), la expresión anterior se reduce a:
+                <br>
+                <span class="text-sm sm:text-base text-purple-400">
+                    \(
+                    \left\| \vec{E} \right\| = \frac{q}{4 \pi \varepsilon_0 z^2}
+                    \)
+                </span>, expresión semejante al campo generado por una carga puntual.
+            </li>
+            <li>si \(z=0\), entonces: <span class="text-purple-400">\(E=0\)</span></li>
+        </ul>
+        <span class="block text-purple-400 text-xl sm:text-2xl font-bold">
+            FORMA 2:
+        </span>
+        Consideremos ahora la cantidad vectorial y no su magnitud, para esto es necesario considerar los tres ángulos que forma el vector \(r\) con los ejes coordenados. Lo anterior es un trabajo vectorial demasiado extenso.
+        <div class="bg-gray-700 rounded-lg p-8 flex items-center justify-center mt-4">
+            <img src="images/CE_5/2.svg" alt="figura2" class="max-w-full h-auto rounded-md">
+        </div>
+        Trasladando el vector \(R\) al origen, tendremos:
+        \[
+        \vec{E} = \int_0^{360^\circ} \frac{1}{4 \pi \varepsilon_0} \frac{dq}{R^2} \left( \cos \theta_1 \hat{i} + \cos \theta_2 \hat{j} + \cos \theta_3 \hat{k} \right)
+        \]
+        \[
+        \vec{E} = \int_0^{2\pi r} \frac{1}{4 \pi \varepsilon_0} \frac{\lambda \, dl}{r^2 + z^2} \left( \cos \theta_1 \hat{i} + \cos \theta_2 \hat{j} + \cos \theta_3 \hat{k} \right)
+        \]
+        \[
+        \vec{E} = \int_0^{2\pi r} \frac{1}{4 \pi \varepsilon_0} \frac{\lambda \, dl}{r^2 + z^2} \left( \frac{r}{\sqrt{r^2 + z^2}} \hat{i} + \frac{z}{\sqrt{r^2 + z^2}} \hat{j} + \frac{r}{\sqrt{r^2 + z^2}} \hat{k} \right)
+        \]
+        <span class="text-red-600">
+            Falta análisis <span class="text-white">...</span> Lo hacen los alumnos.😊
+        </span><br>
+        <div class="space-y-4">
+            <div class="bg-gray-700 text-white rounded-lg p-4">
+                            <!-- Nota en un div con fondo diferente -->                <p class="text-orange-400 font-semibold mb-2">Nota:</p>
+                            <p class="text-lg font-semibold mb-2">Matemática para realizar algunos problemas donde tenemos mediciones angulares y lineales.</p>            <!-- Texto descriptivo -->
+            <div class="text-white text-xl">
+                <p>Para realizar mediciones que relacionan tanto medidas angulares como lineales usamos la siguiente relación:</p>
+            </div>
+        
+            <!-- Imagen centrada abajo del texto -->
+            <div class="flex justify-center">
+                <img src="images/CE_5/3.svg" alt="figura3" class="w-80 h-80 object-cover" />
+            </div>
+            <p class="text-xs mt-4">Nota del 27 junio del 2021.</p>
+            </div>
+        </div>              
+        </p>
+    </div>
+    <script src="../../static/js/global.js"></script>
+    <script src="../../static/js/notas.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+
+</html>
